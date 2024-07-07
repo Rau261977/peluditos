@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-lg py-4 fixed-top">
             <div class="container px-5 fw-bold" style="margin-top:15px; background-color: rgba(255, 255, 255, 0.6); border-radius:50px; opacity:90%;">
                 <a class="navbar-brand " href="/index.php">
-                    <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logocarned.png" alt="aca estoy" style="margin-left: 20px; width: 130px;">
+                    <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logocarned.png" alt="ACA ESTOY YO" style="margin-left: 20px; width: 130px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse justify-content-end align-item-center" id="navbarSupportedContent">
