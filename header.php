@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8" />
     <meta charset="<?php bloginfo('charset'); ?>" />
     <title><?php wp_title(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +11,8 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
     <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
     <?php wp_head(); ?>
-    <meta name="google-site-verification" content="AzN8-jTJG0-2zn2tv6J_BKU4xbpI7Z_Jauxa78aV-84" />
 </head>
 
 <body class="d-flex flex-column h-100" style="background-image: url('<?php echo get_template_directory_uri(); ?>/imagenes/fondodepantalla.webp'); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
@@ -25,7 +21,7 @@
         <nav class="navbar navbar-expand-lg py-4 fixed-top">
             <div class="container px-5 fw-bold" style="margin-top:15px; background-color: rgba(255, 255, 255, 0.6); border-radius:50px; opacity:90%;">
                 <a class="navbar-brand " href="/index.php">
-                    <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logocarned.png" alt="ACA ESTOY YO" style="margin-left: 20px; width: 130px;">
+                    <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logocarned.png" alt="logo de peluditos-petshop" style="margin-left: 20px; width: 130px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse justify-content-end align-item-center" id="navbarSupportedContent">
@@ -65,9 +61,7 @@
         </nav>
     </main>
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
+
 </body>
 
 </html>
