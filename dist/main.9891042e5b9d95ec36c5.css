@@ -1,0 +1,31 @@
+/*
+Theme Name: peluditos petshop
+Author URI: http://creatix.netlify.app
+Version: 1.0
+Description: PetShop web.
+Tags: alimentos y accesorios para mascotas.
+Theme URI: http://creatix.netlify.app
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+.navbar {
+	transition: height 1s ease; /* Transición de altura con una duración de 3 segundos y función de temporización de suavizado */
+}
+
+/* Estilos para la barra de navegación en su estado achicado */
+.navbar.shrink {
+	height: 75px; /* Altura reducida */
+}
+
+/* Tamaño máximo del logo */
+.navbar-logo {
+	max-width: 200px;
+}
+
+/* Tamaño reducido del logo y transición */
+.navbar-logo.logo-shrink {
+	max-width: 120px; /* Reducir el tamaño del logo cuando la barra de navegación se achica */
+	transition: max-width 0.5s ease; /* Transición del tamaño del logo con una duración de 3 segundos y función de temporización de suavizado */
+}
+
