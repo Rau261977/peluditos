@@ -38,7 +38,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
  -----------------------------------------------------------------------------------------------------------------------*/
 #miSlider {
 	max-width: 100%; /* Ajusta el ancho máximo del slider */
-	max-height: 52vh;
+	max-height: 250px;
 	margin: 0 auto; /* Centra el slider */
 	border: 2px solid #ddd; /* Borde alrededor del slider */
 	border-radius: 0px; /* Bordes redondeados */
@@ -143,6 +143,42 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	#miSlider .carousel-control-next-icon {
 		padding: 3px; /* Menor espaciado interno */
 	}
+}
+
+/* Estilos específicos para el segundo slider */
+/* #miSlider2 .carousel-item {
+   Puedes agregar estilos específicos para el segundo slider aquí 
+}*/
+
+#miSlider2 {
+	max-width: 100%; /* Ajusta el ancho máximo del slider */
+	max-height: 250px;
+	margin: 0 auto; /* Centra el slider */
+	border: 2px solid #ddd; /* Borde alrededor del slider */
+	border-radius: 0px; /* Bordes redondeados */
+	overflow: hidden; /* Asegura que las imágenes no se salgan del contenedor */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del contenedor */
+	padding-top: 0px;
+}
+#miSlider2 .carousel-caption h5 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000; /* Cambia el color del texto del título */
+}
+
+#miSlider2 .carousel-caption p {
+	font-size: 16px;
+	color: #333; /* Cambia el color del texto de la descripción */
+}
+
+#miSlider2 .carousel-control-prev-icon,
+#miSlider2 .carousel-control-next-icon {
+	background-color: rgba(
+		0,
+		0,
+		0,
+		0.5
+	); /* Cambia el fondo de los iconos de navegación */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
