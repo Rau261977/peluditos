@@ -2,17 +2,83 @@
 
 <!-- presentacion -->
 <header>
+    <div>
 
-    <div class="container-fluid py-4" aria-label="Imagen de fondo con textura arrugada" style="background-image: url('<?php echo get_template_directory_uri(); ?>/imagenes/arrugado.webp'); background-size: cover; background-repeat: no-repeat; background-position: center; min-height: 100vh;">
+        <div class="row">
+            <div class="col-lg-8">
+                <div id="miSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image1')); ?>" class="d-block w-100" alt="Imagen 1">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 1</h5>
+                                <p>Descripción 1</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image2')); ?>" class="d-block w-100" alt="Imagen 2">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 2</h5>
+                                <p>Descripción 2</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image3')); ?>" class="d-block w-100" alt="Imagen 3">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 3</h5>
+                                <p>Descripción 3</p>
+                            </div>
+                        </div>
 
-        Raul aca
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#miSlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#miSlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div id="miSlider2" class="carousel slide2" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image1')); ?>" class="d-block w-100" alt="Imagen 1">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 1</h5>
+                                <p>Descripción 1</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image2')); ?>" class="d-block w-100" alt="Imagen 2">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 2</h5>
+                                <p>Descripción 2</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image3')); ?>" class="d-block w-100" alt="Imagen 3">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Título 3</h5>
+                                <p>Descripción 3</p>
+                            </div>
+                        </div>
 
-        <div class="gap-2 grow grow:hover text-center">
-            <a href="https://api.whatsapp.com/send?phone=5492216182490&text=Hola,%20quiero%20más%20información" aria-label="Enlace para consultar información en WhatsApp" target="_blank" class="btn btn-primary" style="border-radius:50px;" role="button">Consulte ya!</a>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#miSlider" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#miSlider" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
-
-    </div>
 </header>
 
 

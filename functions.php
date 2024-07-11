@@ -90,4 +90,54 @@ function my_custom_login_logo()
 }
 add_action('login_enqueue_scripts', 'my_custom_login_logo');
 
+function mi_tema_customizer_register($wp_customize)
+{
+    // Sección para el slider
+    $wp_customize->add_section('mi_tema_slider_section', array(
+        'title' => __('Slider', 'mi_tema'),
+        'priority' => 30,
+    ));
+
+    // Campo para la primera imagen
+    $wp_customize->add_setting('mi_tema_slider_image1', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'mi_tema_slider_image1', array(
+        'label' => __('Primera Imagen', 'mi_tema'),
+        'section' => 'mi_tema_slider_section',
+        'settings' => 'mi_tema_slider_image1',
+    )));
+
+    // Campo para la segunda imagen
+    $wp_customize->add_setting('mi_tema_slider_image2', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'mi_tema_slider_image2', array(
+        'label' => __('Segunda Imagen', 'mi_tema'),
+        'section' => 'mi_tema_slider_section',
+        'settings' => 'mi_tema_slider_image2',
+    )));
+
+    // Campo para la tercera imagen
+    $wp_customize->add_setting('mi_tema_slider_image3', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'mi_tema_slider_image3', array(
+        'label' => __('Tercera Imagen', 'mi_tema'),
+        'section' => 'mi_tema_slider_section',
+        'settings' => 'mi_tema_slider_image3',
+    )));
+}
+add_action('customize_register', 'mi_tema_customizer_register');
+
+
+
+
+
+
+
+
 ?>

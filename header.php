@@ -17,7 +17,7 @@
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg py-4 fixed-top">
+        <nav class="navbar navbar-expand-lg py-4">
             <div class="container fw-bold">
                 <a class="navbar-brand " href="/index.php">
                     <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
