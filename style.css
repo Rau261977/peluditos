@@ -144,3 +144,54 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		padding: 3px; /* Menor espaciado interno */
 	}
 }
+
+/*----------------------------------------------------------------------------------------------------------------------
+ Estilos generales del contenedor de logos de marcas
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+.image-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 10px;
+	padding-top: 10vh;
+}
+
+.image-container img {
+	flex: 1 1 calc(100% / 7 - 20px); /* Ajusta la anchura de las imágenes */
+	max-width: 100px; /* Ancho máximo para las imágenes, ajusta según tus necesidades */
+	height: auto; /* Mantener la proporción de las imágenes */
+	object-fit: cover; /* Asegura que las imágenes se recorten correctamente */
+	margin: 10px; /* Margen para dar espacio entre las imágenes */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1200px) {
+	.image-container img {
+		flex: 1 1 calc(100% / 6 - 20px);
+	}
+}
+
+@media (max-width: 992px) {
+	.image-container img {
+		flex: 1 1 calc(100% / 5 - 20px);
+	}
+}
+
+@media (max-width: 768px) {
+	.image-container img {
+		flex: 1 1 calc(100% / 4 - 20px);
+	}
+}
+
+@media (max-width: 576px) {
+	.image-container img {
+		flex: 1 1 calc(100% / 3 - 20px);
+	}
+}
+
+@media (max-width: 400px) {
+	.image-container img {
+		flex: 1 1 calc(100% / 2 - 20px);
+	}
+}

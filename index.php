@@ -80,7 +80,20 @@
         </div>
 
 </header>
-
+<main>
+    <section>
+        <div class="image-container">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purina.png" alt="logo de purina">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/eukanuba.jpg" alt="logo de eukanuba">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/agility.jpg" alt="logo de agility">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/vitalcan.jpeg" alt="logo de vitalcan">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purinacat.png" alt="logo de purinacat">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/royalcanin.png" alt="logo de royalcanin">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/pedigree.png" alt="logo de pedigree">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/sieger.jpg" alt="logo de sieger">
+        </div>
+    </section>
+</main>
 
 
 

@@ -10,7 +10,7 @@
             </div>
             <div class="col-auto">
                 <div class="small m-0" style="color: gray;">
-                    Todos los derechos reservados &copy; Carnicerías Digitales 2024 <a href="https://storyset.com/">Illustrations by Storyset</a>
+                    Diseñado y desarrollado por CREATIX <a href="https://creatix.netlify.app/"></a>
                 </div>
             </div>
         </div>
