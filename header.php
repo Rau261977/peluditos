@@ -37,33 +37,35 @@
 
         </nav>
         <nav class="navbar navbar-expand-lg">
-            <div class="container justify-content-center align-item-center text-center">
+            <div class="container">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse fw-bold justify-content-center text-center align-item-center" id="navbarSupportedContent">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <?php
                     wp_nav_menu([
                         'menu' => 'Primary',
-                        'menu_class' => 'navbar-nav ms-auto mb-lg-0',
+                        'menu_class' => 'navbar-nav',
                         'container' => false,
                         'walker' => new My_Theme_Walker_Nav_Menu(),
                         'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Servicios
-                                </a>
-                                <ul class="dropdown-menu py-3 my-3">
-                                    <li><a class="dropdown-item" href="desarrollo-web">menu 1 </a></li>
-                                    <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
-                                    <li><a class="dropdown-item" href="community">menu3</a></li>
-                                </ul>
-                            </li></ul>'
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Servicios
+                        </a>
+                        <ul class="dropdown-menu py-3 my-3">
+                            <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
+                            <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
+                            <li><a class="dropdown-item" href="community">menu 3</a></li>
+                        </ul>
+                    </li></ul>'
                     ]);
                     ?>
-
                 </div>
             </div>
         </nav>
+
     </main>
     <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 
