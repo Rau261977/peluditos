@@ -12,9 +12,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /* Estilos generales del navbar */
 .navbar {
 	transition: height 1s ease; /* Transición de altura con una duración de 3 segundos y función de temporización de suavizado */
-	background-color: rgba(255, 255, 255); /* Fondo blanco semi-transparente */
+	background-color: #01af01; /* Fondo blanco semi-transparente */
 	z-index: 10; /* Asegura que el navbar esté por encima del slider */
 	position: relative; /* Permite ajustar la posición del navbar */
+	border-bottom: 1px solid white; /* Puedes ajustar el color y el grosor según tus necesidades */
 }
 
 /* Estilos para la barra de navegación en su estado achicado */
@@ -24,13 +25,58 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* Tamaño máximo del logo */
 .navbar-logo {
-	max-width: 200px;
+	max-width: 230px;
+	margin: 15px 30px 5px 30px;
 }
 
 /* Tamaño reducido del logo y transición */
 .navbar-logo.logo-shrink {
 	max-width: 120px; /* Reducir el tamaño del logo cuando la barra de navegación se achica */
 	transition: max-width 0.5s ease; /* Transición del tamaño del logo con una duración de 3 segundos y función de temporización de suavizado */
+}
+
+/*-------------------------------------------------------------------------------------------------------------------
+ Ajustes generales para el formulario de búsqueda 
+---------------------------------------------------------------------------------------------------------------------*/
+.navbar .search-container {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end; /* Alinea el formulario a la derecha en la columna */
+	gap: 10px; /* Espaciado entre el campo de entrada y el botón */
+	margin-right: 30px;
+}
+
+/* Estilo del campo de entrada */
+.navbar .form-control {
+	width: 250px; /* Ancho del campo de entrada */
+	border-radius: 20px; /* Bordes redondeados */
+	padding: 10px 20px; /* Espaciado interno */
+	border: 2px solid #ccc; /* Color del borde */
+	transition: border-color 0.3s; /* Transición para el color del borde */
+}
+
+.navbar .form-control:focus {
+	border-color: #28a745; /* Color del borde al enfocar */
+	outline: none; /* Elimina el contorno predeterminado */
+}
+
+/* Estilo del botón */
+.navbar .btn {
+	border-radius: 20px; /* Bordes redondeados */
+	padding: 10px 20px; /* Espaciado interno */
+	border: 2px solid #28a745; /* Color del borde */
+	color: #ffffff; /* Color del texto */
+	transition: background-color 0.3s, color 0.3s; /* Transición para el color y el fondo */
+}
+
+.navbar .btn:hover {
+	background-color: #28a745; /* Fondo al pasar el cursor */
+	color: #fff; /* Color del texto al pasar el cursor */
+}
+
+/* Agregar borde inferior a la navegación */
+.navbar {
+	padding-bottom: 10px; /* Espaciado opcional */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
