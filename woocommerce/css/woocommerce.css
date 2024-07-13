@@ -1,0 +1,40 @@
+/* woocommerce/css/woocommerce.css */
+
+/* Estilo personalizado para productos */
+.woocommerce ul.products li.product a img {
+	border: 1px solid #eee;
+	transition: all 0.3s ease-in-out;
+}
+
+.woocommerce ul.products li.product a img:hover {
+	border-color: #333;
+}
+
+/* Estilo personalizado para botones */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit {
+	background-color: #007bff;
+	color: #fff;
+	border-radius: 0;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit:hover {
+	background-color: #0056b3;
+}
+
+/* Otros estilos personalizados */
+.woocommerce div.product .summary,
+.woocommerce div.product div.entry-summary {
+	padding: 20px;
+	background: #f7f7f7;
+}
+
+.woocommerce .star-rating span:before {
+	color: #ffcc00;
+}

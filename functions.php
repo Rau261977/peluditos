@@ -172,8 +172,32 @@ function mi_tema_customizer_register($wp_customize)
 }
 add_action('customize_register', 'mi_tema_customizer_register');
 
+function mytheme_add_woocommerce_support()
+{
+    add_theme_support('woocommerce', array(
+        'thumbnail_image_width' => 150,
+        'single_image_width'    => 300,
 
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+            'default_columns' => 4,
+            'min_columns'     => 2,
+            'max_columns'     => 5,
+        ),
+    ));
+}
+add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
+function mytheme_add_woocommerce_styles()
+{
+    if (class_exists('WooCommerce')) {
+        // Encolar la hoja de estilos personalizada para WooCommerce
+        wp_enqueue_style('mytheme-woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce.css');
+    }
+}
+add_action('wp_enqueue_scripts', 'mytheme_add_woocommerce_styles');
 
 
 
