@@ -28,10 +28,7 @@
                 </div>
             </div>
             <div class="col-lg-6 py-4 my-3">
-                <form class="search-container" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Escribe lo que buscas" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
-                </form>
+
 
             </div>
 

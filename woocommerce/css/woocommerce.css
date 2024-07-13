@@ -38,3 +38,155 @@
 .woocommerce .star-rating span:before {
 	color: #ffcc00;
 }
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+/* Contenedor principal de la lista de productos */
+ul.products {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px; /* Espacio entre las tarjetas */
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Elementos de la lista de productos */
+ul.products li.product {
+	flex: 0 1 calc(25% - 20px); /* Ajusta para que ocupe un cuarto del ancho del contenedor, menos el espacio del gap */
+	box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+	list-style: none;
+}
+
+/* Ajustes adicionales para las tarjetas */
+.card {
+	border: 1px solid #ddd;
+	padding: 20px;
+}
+
+/* Imagen del producto */
+.card img {
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+/* Título del producto */
+.card h2 {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+/* Precio del producto */
+.card .price {
+	font-size: 1.1em;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+/* Botón de añadir al carrito */
+.card .button {
+	margin-top: 10px;
+}
+
+/* -----------------------------------------------------------------------------------------------------
+Estilos para la barra lateral y el contenido de la tienda
+-------------------------------------------------------------------------------------------------------- */
+.patio {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1850px; /* Ajusta este valor según tus necesidades */
+	margin: 0 auto;
+	margin: 10vh;
+}
+
+.row {
+	display: flex;
+	flex: 1;
+}
+
+.col-md-2 {
+	flex: 0 0 15%;
+	max-width: 15%;
+}
+
+.col-md-10 {
+	flex: 0 0 85%;
+	max-width: 85%;
+}
+
+.widget-area {
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 40px; /* Ajusta este valor según tus necesidades */
+	width: 100%; /* Ajusta el ancho según tus necesidades */
+}
+
+.widget {
+	margin-bottom: 20px;
+}
+
+.widget-title {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+
+/*--------------------------------------------------------------------------------------------------------
+ Estilos para el breadcrumb en WooCommerce 
+ ----------------------------------------------------------------------------------------------------------*/
+.woocommerce-breadcrumb {
+	margin: 20px 0 0 50px; /* Margen superior e inferior */
+	font-size: 17px; /* Tamaño de fuente */
+	color: #333; /* Color del texto */
+}
+
+.woocommerce-breadcrumb a {
+	color: #007bff; /* Color de los enlaces */
+	text-decoration: none; /* Quitar subrayado */
+}
+
+.woocommerce-breadcrumb a:hover {
+	text-decoration: underline; /* Subrayado al pasar el ratón por encima */
+}
+
+.woocommerce-result-count {
+	display: none;
+}
+
+/* ---------------------------------------------------------------------------------------------------------
+Estilos para el cuadro de selección de orden en WooCommerce 
+------------------------------------------------------------------------------------------------------------*/
+.woocommerce-ordering {
+	margin-bottom: 20px; /* Margen inferior */
+}
+
+.woocommerce-ordering select {
+	padding: 8px; /* Relleno dentro del select */
+	font-size: 14px; /* Tamaño de fuente */
+	color: #333; /* Color del texto */
+	background-color: #f2f2f2; /* Color de fondo */
+	border: 1px solid #ccc; /* Borde */
+	border-radius: 4px; /* Borde redondeado */
+}
+
+.woocommerce-ordering select:hover,
+.woocommerce-ordering select:focus {
+	border-color: #007bff; /* Color del borde al pasar el ratón o estar enfocado */
+	outline: none; /* Quitar el contorno al estar enfocado */
+}
+
+/* Estilos para las opciones dentro del select */
+.woocommerce-ordering select option {
+	background-color: #fff; /* Color de fondo de las opciones */
+	color: #333; /* Color del texto de las opciones */
+}
+
+/* Estilos para el botón del select */
+.woocommerce-ordering select::after {
+	content: '\25BE'; /* Triángulo hacia abajo (caret) */
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translateY(-50%);
+	pointer-events: none; /* Evitar que el clic se propague al select */
+}

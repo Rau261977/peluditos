@@ -199,6 +199,11 @@ function mytheme_add_woocommerce_styles()
 }
 add_action('wp_enqueue_scripts', 'mytheme_add_woocommerce_styles');
 
+//oculta el titulo de la tienda
+
+add_filter('woocommerce_show_page_title', '__return_false');
+
+
 
 
 
