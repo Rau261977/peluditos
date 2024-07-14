@@ -10,22 +10,19 @@
                         <div class="carousel-item active">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image1')); ?>" class="d-block w-100" alt="Imagen 1">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 1</h5>
-                                <p>Descripción 1</p>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image2')); ?>" class="d-block w-100" alt="Imagen 2">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 2</h5>
-                                <p>Descripción 2</p>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image3')); ?>" class="d-block w-100" alt="Imagen 3">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 3</h5>
-                                <p>Descripción 3</p>
+
                             </div>
                         </div>
                     </div>
@@ -45,22 +42,19 @@
                         <div class="carousel-item active">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider2_image1')); ?>" class="d-block w-100" alt="Imagen 1">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 1</h5>
-                                <p>Descripción 1</p>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider2_image2')); ?>" class="d-block w-100" alt="Imagen 2">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 2</h5>
-                                <p>Descripción 2</p>
+
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider2_image3')); ?>" class="d-block w-100" alt="Imagen 3">
                             <div class="carousel-caption d-none d-md-block">
-                                <h5>Título 3</h5>
-                                <p>Descripción 3</p>
+
                             </div>
                         </div>
                     </div>
