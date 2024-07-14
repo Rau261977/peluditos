@@ -14,39 +14,38 @@
     <?php wp_head(); ?>
 </head>
 
+
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg row">
+        <nav class="navbar">
 
             <div class="col-lg-6">
                 <div class="fw-bold">
                     <a class="navbar-brand " href="/index.php">
                         <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 </div>
             </div>
-            <div class="col-lg-6 py-4 my-3">
+            <div class="col-lg-6">
 
 
             </div>
 
         </nav>
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <?php
-                    wp_nav_menu([
-                        'menu' => 'Primary',
-                        'menu_class' => 'navbar-nav',
-                        'container' => false,
-                        'walker' => new My_Theme_Walker_Nav_Menu(),
-                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <?php
+                wp_nav_menu([
+                    'menu' => 'Primary',
+                    'menu_class' => 'navbar-nav',
+                    'container' => false,
+                    'walker' => new My_Theme_Walker_Nav_Menu(),
+                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Servicios
@@ -57,14 +56,13 @@
                             <li><a class="dropdown-item" href="community">menu 3</a></li>
                         </ul>
                     </li></ul>'
-                    ]);
-                    ?>
-                </div>
+                ]);
+                ?>
             </div>
+
         </nav>
 
     </main>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/script.js"></script>
 
 
     <?php wp_footer(); ?>

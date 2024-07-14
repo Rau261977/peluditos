@@ -2,10 +2,9 @@
 
 <!-- presentacion -->
 <header>
-    <div>
-
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8 d-flex flex-column">
                 <div id="miSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -29,7 +28,6 @@
                                 <p>Descripción 3</p>
                             </div>
                         </div>
-
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#miSlider" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,7 +39,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 d-flex flex-column d-none d-lg-block">
                 <div id="miSlider2" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -77,8 +75,9 @@
                 </div>
             </div>
         </div>
-
+    </div>
 </header>
+
 <main>
     <section>
         <div class="image-container">

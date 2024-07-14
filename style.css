@@ -86,9 +86,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 /*----------------------------------------------------------------------------------------------------------------------
  Estilos generales del contenedor del slider 
  -----------------------------------------------------------------------------------------------------------------------*/
-#miSlider {
-	max-width: 100%; /* Ajusta el ancho máximo del slider */
-	max-height: 250px;
+/* Estilos generales del contenedor del slider */
+#miSlider,
+#miSlider2 {
+	width: 100%; /* Ajusta el ancho del slider para que ocupe todo el contenedor */
+	height: 260px;
 	margin: 0 auto; /* Centra el slider */
 	border: 2px solid #ddd; /* Borde alrededor del slider */
 	border-radius: 0px; /* Bordes redondeados */
@@ -98,46 +100,54 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 }
 
 /* Estilos para las imágenes del slider */
-#miSlider .carousel-item img {
+#miSlider .carousel-item img,
+#miSlider2 .carousel-item img {
 	width: 100%;
-	height: auto; /* Mantiene la proporción de las imágenes */
+	height: 100%; /* Ajusta la altura para llenar el contenedor */
 	object-fit: cover; /* Asegura que las imágenes cubran completamente el área del slider */
 }
 
 /* Estilos para las leyendas del slider */
-#miSlider .carousel-caption {
+#miSlider .carousel-caption,
+#miSlider2 .carousel-caption {
 	background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-	padding: 0px; /* Espaciado interno */
+	padding: 10px; /* Espaciado interno */
 	border-radius: 0px; /* Bordes redondeados */
 }
 
 /* Estilos para los títulos dentro de las leyendas */
-#miSlider .carousel-caption h5 {
+#miSlider .carousel-caption h5,
+#miSlider2 .carousel-caption h5 {
 	font-size: 24px;
 	color: #fff; /* Color del texto */
 	margin: 0 0 10px 0; /* Margen inferior */
 }
 
 /* Estilos para las descripciones dentro de las leyendas */
-#miSlider .carousel-caption p {
+#miSlider .carousel-caption p,
+#miSlider2 .carousel-caption p {
 	font-size: 16px;
 	color: #ddd; /* Color del texto */
 }
 
 /* Estilos para los controles del slider (prev y next) */
 #miSlider .carousel-control-prev-icon,
-#miSlider .carousel-control-next-icon {
+#miSlider .carousel-control-next-icon,
+#miSlider2 .carousel-control-prev-icon,
+#miSlider2 .carousel-control-next-icon {
 	background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
 	border-radius: 50%; /* Bordes redondeados */
 	padding: 10px; /* Espaciado interno */
 }
 
 /* Estilos para los indicadores del slider (si los usas) */
-#miSlider .carousel-indicators [data-bs-target] {
+#miSlider .carousel-indicators [data-bs-target],
+#miSlider2 .carousel-indicators [data-bs-target] {
 	background-color: #000; /* Color de los puntos */
 }
 
-#miSlider .carousel-indicators .active {
+#miSlider .carousel-indicators .active,
+#miSlider2 .carousel-indicators .active {
 	background-color: #fff; /* Color del punto activo */
 }
 
@@ -145,90 +155,66 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 /* Para pantallas más pequeñas (tablets y smartphones) */
 @media (max-width: 768px) {
-	#miSlider {
+	#miSlider,
+	#miSlider2 {
 		border-radius: 10px; /* Bordes menos redondeados */
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra reducida */
 	}
 
-	#miSlider .carousel-caption {
+	#miSlider .carousel-caption,
+	#miSlider2 .carousel-caption {
 		padding: 15px; /* Menor espaciado interno */
 		border-radius: 5px; /* Bordes menos redondeados */
 	}
 
-	#miSlider .carousel-caption h5 {
+	#miSlider .carousel-caption h5,
+	#miSlider2 .carousel-caption h5 {
 		font-size: 20px; /* Tamaño de fuente reducido */
 	}
 
-	#miSlider .carousel-caption p {
+	#miSlider .carousel-caption p,
+	#miSlider2 .carousel-caption p {
 		font-size: 14px; /* Tamaño de fuente reducido */
 	}
 
 	#miSlider .carousel-control-prev-icon,
-	#miSlider .carousel-control-next-icon {
+	#miSlider .carousel-control-next-icon,
+	#miSlider2 .carousel-control-prev-icon,
+	#miSlider2 .carousel-control-next-icon {
 		padding: 5px; /* Menor espaciado interno */
 	}
 }
 
 /* Para pantallas muy pequeñas (smartphones en modo retrato) */
 @media (max-width: 576px) {
-	#miSlider {
+	#miSlider,
+	#miSlider2 {
 		border-radius: 5px; /* Bordes aún menos redondeados */
 		box-shadow: none; /* Sin sombra */
 	}
 
-	#miSlider .carousel-caption {
+	#miSlider .carousel-caption,
+	#miSlider2 .carousel-caption {
 		padding: 10px; /* Menor espaciado interno */
 		border-radius: 3px; /* Bordes menos redondeados */
 	}
 
-	#miSlider .carousel-caption h5 {
+	#miSlider .carousel-caption h5,
+	#miSlider2 .carousel-caption h5 {
 		font-size: 18px; /* Tamaño de fuente reducido */
 	}
 
-	#miSlider .carousel-caption p {
+	#miSlider .carousel-caption p,
+	#miSlider2 .carousel-caption p {
 		font-size: 12px; /* Tamaño de fuente reducido */
 	}
 
 	#miSlider .carousel-control-prev-icon,
-	#miSlider .carousel-control-next-icon {
+	#miSlider .carousel-control-next-icon,
+	#miSlider2 .carousel-control-prev-icon,
+	#miSlider2 .carousel-control-next-icon {
 		padding: 3px; /* Menor espaciado interno */
 	}
-}
-
-/* Estilos específicos para el segundo slider */
-/* #miSlider2 .carousel-item {
-   Puedes agregar estilos específicos para el segundo slider aquí 
-}*/
-
-#miSlider2 {
-	max-width: 100%; /* Ajusta el ancho máximo del slider */
-	max-height: 250px;
-	margin: 0 auto; /* Centra el slider */
-	border: 2px solid #ddd; /* Borde alrededor del slider */
-	border-radius: 0px; /* Bordes redondeados */
-	overflow: hidden; /* Asegura que las imágenes no se salgan del contenedor */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del contenedor */
-	padding-top: 0px;
-}
-#miSlider2 .carousel-caption h5 {
-	font-size: 24px;
-	font-weight: bold;
-	color: #000; /* Cambia el color del texto del título */
-}
-
-#miSlider2 .carousel-caption p {
-	font-size: 16px;
-	color: #333; /* Cambia el color del texto de la descripción */
-}
-
-#miSlider2 .carousel-control-prev-icon,
-#miSlider2 .carousel-control-next-icon {
-	background-color: rgba(
-		0,
-		0,
-		0,
-		0.5
-	); /* Cambia el fondo de los iconos de navegación */
 }
 
 /*----------------------------------------------------------------------------------------------------------------------
