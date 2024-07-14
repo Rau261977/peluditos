@@ -20,14 +20,23 @@
         <!-- Navigation-->
         <nav class="navbar">
 
-            <div class="col-lg-6">
-                <div class="fw-bold">
-                    <a class="navbar-brand " href="/index.php">
+            <div class="col-lg-6 col-12">
+                <div class="d-flex">
+                    <a class="navbar-brand" href="/index.php">
                         <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6">
+
+            <div class="col-lg-6 col-12">
+                <?php if (class_exists('WooCommerce')) : ?>
+                    <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
+                        <label class="screen-reader-text" for="woocommerce-product-search-field"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
+                        <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="<?php echo esc_attr__('Search products&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                        <button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>"><?php echo esc_html_x('Search', 'submit button', 'woocommerce'); ?></button>
+                        <input type="hidden" name="post_type" value="product" />
+                    </form>
+                <?php endif; ?>
 
 
             </div>

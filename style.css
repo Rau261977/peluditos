@@ -23,18 +23,84 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	height: 75px; /* Altura reducida */
 }
 
-/* Tamaño máximo del logo */
+/*--------------------------------------------------------------------------------------------------------
+Logo
+------------------------------------------------------------------------------------------------------------*/
+/* Tamaño máximo del logo en pantallas grandes */
 .navbar-logo {
 	max-width: 230px;
-	margin: 0px 30px 0px 30px;
+	transition: max-width 0.5s ease, margin 0.5s ease;
 }
 
-/* Tamaño reducido del logo y transición */
+/* Reducir el tamaño del logo cuando la barra de navegación se achica */
 .navbar-logo.logo-shrink {
-	max-width: 120px; /* Reducir el tamaño del logo cuando la barra de navegación se achica */
-	transition: max-width 0.5s ease; /* Transición del tamaño del logo con una duración de 3 segundos y función de temporización de suavizado */
+	max-width: 120px;
 }
-/* Estilos para la barra de navegación */
+
+/* Para tablets */
+@media (max-width: 768px) {
+	.navbar-logo {
+		max-width: 180px; /* Ajusta el tamaño del logo para tablets */
+		margin: 0px 20px;
+	}
+
+	.navbar-brand {
+		display: flex;
+		justify-content: center; /* Centra el contenedor del logo horizontalmente */
+		align-items: center; /* Centra el contenedor del logo verticalmente */
+		width: 100%; /* Asegura que el contenedor del logo ocupe el ancho completo */
+		margin: 0; /* Elimina cualquier margen adicional */
+	}
+}
+
+/* Para smartphones */
+@media (max-width: 576px) {
+	.navbar-logo {
+		max-width: 150px; /* Ajusta el tamaño del logo para smartphones */
+		margin: 0; /* Elimina cualquier margen adicional */
+	}
+
+	.navbar-brand {
+		justify-content: center; /* Centra el contenedor del logo horizontalmente */
+		align-items: center; /* Centra el contenedor del logo verticalmente */
+		width: 100%; /* Asegura que el contenedor del logo ocupe el ancho completo */
+		margin: 0; /* Elimina cualquier margen adicional */
+	}
+}
+
+/* Para smartphones muy pequeños */
+@media (max-width: 400px) {
+	.navbar-logo {
+		max-width: 120px; /* Ajusta el tamaño del logo para pantallas muy pequeñas */
+		margin: 0;
+	}
+
+	.navbar-brand {
+		justify-content: center; /* Centra el contenedor del logo horizontalmente */
+		align-items: center; /* Centra el contenedor del logo verticalmente */
+		width: 100%; /* Asegura que el contenedor del logo ocupe el ancho completo */
+		margin: 0; /* Elimina cualquier margen adicional */
+	}
+}
+
+/* Alineación a la izquierda en pantallas grandes */
+@media (min-width: 769px) {
+	.navbar-brand {
+		display: flex;
+		justify-content: start; /* Alinea el contenedor del logo a la izquierda */
+		align-items: center; /* Centra verticalmente */
+		width: auto; /* Resetea el ancho para pantallas grandes */
+	}
+
+	.navbar-logo {
+		max-width: 230px; /* Tamaño del logo para pantallas grandes */
+		margin: 0px 30px; /* Ajusta el margen */
+	}
+}
+
+/*------------------------------------------------------------------------------------------------------------
+Estilos para la barra de navegación
+---------------------------------------------------------------------------------------------------  */
 .navbar {
 	display: flex;
 	justify-content: center;
@@ -82,6 +148,71 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	color: #007bff; /* Cambia el color del texto al pasar el ratón */
 	background-color: #f8f9fa; /* Cambia el color de fondo al pasar el ratón */
 }
+
+/*--------------------------------------------------------------------------------------
+ Estilos para el contenedor del formulario de búsqueda 
+--------------------------------------------------------------------------------------*/
+
+/* Estilos para el formulario de búsqueda en dispositivos grandes */
+.woocommerce-product-search {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin-top: 10px; /* Ajusta el margen superior según sea necesario */
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+/* Estilos para el campo de búsqueda */
+.search-field {
+	width: 300px; /* Ajusta el ancho del campo de búsqueda */
+	margin-right: 10px; /* Espacio entre el campo y el botón de búsqueda */
+	height: 40px; /* Altura del campo de búsqueda */
+	border: 0.5px solid #fff; /* Borde blanco de 0.5px */
+	border-radius: 30px; /* Radio de borde de 30px */
+	padding: 0 10px; /* Espacio interno para el texto */
+}
+
+/* Estilos para el botón de búsqueda */
+.woocommerce-product-search button {
+	background-color: #3092e2 !important; /* Color de fondo del botón */
+	color: #000000; /* Color del texto del botón */
+	border: 0.5px solid #fff; /* Borde blanco de 0.5px */
+	border-radius: 30px; /* Radio de borde de 30px */
+	padding: 10px 20px;
+	cursor: pointer;
+	height: 40px; /* Altura del botón */
+	display: flex;
+	align-items: center; /* Centra verticalmente el contenido del botón */
+	transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+.woocommerce-product-search button:hover {
+	background-color: #ffd700 !important; /* Cambia el color de fondo a amarillo al hacer hover */
+}
+
+/* Media query para dispositivos más pequeños */
+@media (max-width: 768px) {
+	.woocommerce-product-search {
+		justify-content: center; /* Centra el formulario de búsqueda en dispositivos pequeños */
+		margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+		padding-left: 10px; /* Ajusta el padding izquierdo del contenedor en pantallas pequeñas */
+		padding-right: 10px; /* Ajusta el padding derecho del contenedor en pantallas pequeñas */
+	}
+
+	.search-field {
+		width: calc(
+			100% - 20px
+		); /* El campo de búsqueda ocupa todo el ancho disponible menos el padding */
+		margin-right: 0; /* No se necesita margen derecho en dispositivos pequeños */
+	}
+
+	.woocommerce-product-search button {
+		padding: 10px 15px; /* Ajusta el padding del botón para dispositivos pequeños */
+	}
+}
+
+/*--------------------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------------------------------------------------
  Estilos generales del contenedor del slider 
