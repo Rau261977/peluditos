@@ -38,61 +38,72 @@ do_action('woocommerce_before_main_content');
  */
 do_action('woocommerce_shop_loop_header');
 
-echo '<div class="patio"><div class="row"><div class="col-md-10">';
+?>
 
-if (woocommerce_product_loop()) {
 
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action('woocommerce_before_shop_loop');
 
-	woocommerce_product_loop_start();
+<div class="section mt-4">
+	<div class="row">
+		<div class="col-md-10">
+			<?php
+			if (woocommerce_product_loop()) {
+				/**
+				 * Hook: woocommerce_before_shop_loop.
+				 *
+				 * @hooked woocommerce_output_all_notices - 10
+				 * @hooked woocommerce_result_count - 20
+				 * @hooked woocommerce_catalog_ordering - 30
+				 */
+				do_action('woocommerce_before_shop_loop');
 
-	if (wc_get_loop_prop('total')) {
-		while (have_posts()) {
-			the_post();
+				woocommerce_product_loop_start();
 
-			/**
-			 * Hook: woocommerce_shop_loop.
-			 */
-			do_action('woocommerce_shop_loop');
+				if (wc_get_loop_prop('total')) {
+					while (have_posts()) {
+						the_post();
 
-			wc_get_template_part('content', 'product');
-		}
-	}
+						/**
+						 * Hook: woocommerce_shop_loop.
+						 */
+						do_action('woocommerce_shop_loop');
 
-	woocommerce_product_loop_end();
+						wc_get_template_part('content', 'product');
+					}
+				}
 
-	/**
-	 * Hook: woocommerce_after_shop_loop.
-	 *
-	 * @hooked woocommerce_pagination - 10
-	 */
-	do_action('woocommerce_after_shop_loop');
-} else {
-	/**
-	 * Hook: woocommerce_no_products_found.
-	 *
-	 * @hooked wc_no_products_found - 10
-	 */
-	do_action('woocommerce_no_products_found');
-}
+				woocommerce_product_loop_end();
 
-echo '</div><div class="col-md-2">';
+				/**
+				 * Hook: woocommerce_after_shop_loop.
+				 *
+				 * @hooked woocommerce_pagination - 10
+				 */
+				do_action('woocommerce_after_shop_loop');
+			} else {
+				/**
+				 * Hook: woocommerce_no_products_found.
+				 *
+				 * @hooked wc_no_products_found - 10
+				 */
+				do_action('woocommerce_no_products_found');
+			}
+			?>
+		</div>
 
-if (is_active_sidebar('sidebar-1')) {
-	echo '<aside id="secondary" class="widget-area">';
-	dynamic_sidebar('sidebar-1');
-	echo '</aside>';
-}
+		<div class="col-md-2">
+			<?php
+			// Sidebar de WooCommerce
+			if (is_active_sidebar('sidebar-1')) {
+				echo '<aside id="secondary" class="widget-area">';
+				dynamic_sidebar('sidebar-1');
+				echo '</aside>';
+			}
+			?>
+		</div>
+	</div>
+</div>
 
-echo '</div></div></div>'; // Close col-md-2, row, and container divs
-
+<?php
 /**
  * Hook: woocommerce_after_main_content.
  *
@@ -108,3 +119,4 @@ do_action('woocommerce_after_main_content');
 do_action('woocommerce_sidebar');
 
 get_footer('shop');
+?>

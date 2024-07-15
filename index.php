@@ -72,7 +72,82 @@
     </div>
 </header>
 
+<div class="section destacados mb-4">
+    <div class="row justify-content-center">
+        <?php
+        // Mostrar 6 tarjetas destacadas
+        for ($i = 1; $i <= 6; $i++) {
+            echo '<div class="col-md-2 mb-4">';
+            echo '<div class="card h-100">';
+            echo '<img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">';
+            echo '<div class="card-body">';
+            echo '<h5 class="card-title">Tarjeta ' . $i . '</h5>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+    </div>
+</div>
+
 <main>
+    <section class="mt-4">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="grid-section row row-cols-1 row-cols-md-4 g-4">
+                    <?php
+                    $args = array(
+                        'status' => 'publish',
+                        'limit' => 12, // Obtener hasta 12 productos
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    );
+                    $products = wc_get_products($args);
+                    $index = 0;
+                    foreach ($products as $product) {
+                        // Mostrar solo los primeros 12 productos
+                        if ($index >= 12) break;
+
+                        // Obtener la imagen del producto
+                        $image = $product->get_image();
+                        $image_url = wp_get_attachment_image_url($product->get_image_id(), 'full');
+
+                        // Abrir un div de grid-item para cada producto
+                        echo '<div class="col">';
+                        echo '<div class="card h-100">';
+                        echo '<img src="' . esc_url($image_url) . '" class="card-img-top" alt="' . esc_attr($product->get_name()) . '">';
+                        echo '<div class="card-body">';
+                        echo '<h5 class="card-title">' . esc_html($product->get_name()) . '</h5>';
+                        echo '<p class="card-text">' . wp_kses_post(wp_trim_words($product->get_description(), 20)) . '</p>';
+                        echo '<a href="' . esc_url($product->get_permalink()) . '" class="btn btn-primary">Ver Producto</a>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+
+                        $index++;
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="sidebar2">
+                    <h2>Últimas Publicaciones</h2>
+                    <?php
+                    $recent_posts = wp_get_recent_posts(array('numberposts' => 5));
+                    foreach ($recent_posts as $post) {
+                        echo '<div class="post-item">';
+                        echo '<h3><a href="' . get_permalink($post["ID"]) . '">' . $post["post_title"] . '</a></h3>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--   fin de la seccion -->
     <section>
         <div class="image-container">
             <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purina.png" alt="logo de purina">
