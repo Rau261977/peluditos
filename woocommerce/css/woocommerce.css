@@ -195,8 +195,15 @@ Estilos para el cuadro de selección de orden en WooCommerce
 Destacados
 -----------------------------------------------------------------------------------------------------------------------*/
 /* Estilos para las tarjetas "card" dentro de la sección "destacados" */
+.destacados {
+	border: none; /* Borde delgado gris */
+	border-radius: 8px; /* Bordes redondeados */
+	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
+	margin-top: 15px;
+}
 .destacados .card {
-	border: 1px solid #ddd; /* Borde delgado gris */
+	border: none; /* Borde delgado gris */
 	border-radius: 8px; /* Bordes redondeados */
 	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
