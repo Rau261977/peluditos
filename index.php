@@ -91,9 +91,10 @@
 </div>
 
 <main>
-    <section class="mt-4">
+    <div class="section mt-4">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-9">
+
                 <div class="grid-section row row-cols-1 row-cols-md-4 g-4">
                     <?php
                     $args = array(
@@ -130,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="sidebar2">
                     <h2>Últimas Publicaciones</h2>
                     <?php
@@ -144,22 +145,22 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
 
-    <!--   fin de la seccion -->
-    <section>
-        <div class="image-container">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purina.png" alt="logo de purina">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/eukanuba.jpg" alt="logo de eukanuba">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/agility.jpg" alt="logo de agility">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/vitalcan.jpeg" alt="logo de vitalcan">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purinacat.png" alt="logo de purinacat">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/royalcanin.png" alt="logo de royalcanin">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/pedigree.png" alt="logo de pedigree">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/sieger.jpg" alt="logo de sieger">
-        </div>
-    </section>
+        <!--   fin de la seccion -->
+        <section>
+            <div class="image-container">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purina.png" alt="logo de purina">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/eukanuba.jpg" alt="logo de eukanuba">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/agility.jpg" alt="logo de agility">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/vitalcan.jpeg" alt="logo de vitalcan">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/purinacat.png" alt="logo de purinacat">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/royalcanin.png" alt="logo de royalcanin">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/pedigree.png" alt="logo de pedigree">
+                <img src="<?php echo get_template_directory_uri(); ?>/imagenes/logomarcas/sieger.jpg" alt="logo de sieger">
+            </div>
+        </section>
 </main>
 
 

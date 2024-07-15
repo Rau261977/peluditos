@@ -44,7 +44,7 @@ do_action('woocommerce_shop_loop_header');
 
 <div class="section mt-4">
 	<div class="row">
-		<div class="col-md-10">
+		<div class="col-md-9">
 			<?php
 			if (woocommerce_product_loop()) {
 				/**
@@ -90,7 +90,7 @@ do_action('woocommerce_shop_loop_header');
 			?>
 		</div>
 
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<?php
 			// Sidebar de WooCommerce
 			if (is_active_sidebar('sidebar-1')) {
