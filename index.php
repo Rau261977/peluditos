@@ -77,18 +77,27 @@
         <?php
         // Mostrar 6 tarjetas destacadas
         for ($i = 1; $i <= 6; $i++) {
-            echo '<div class="col-md-2 mb-4">';
-            echo '<div class="card h-100">';
-            echo '<img src="https://via.placeholder.com/150" class="card-img-top" alt="Placeholder Image">';
-            echo '<div class="card-body">';
-            echo '<h5 class="card-title">Tarjeta ' . $i . '</h5>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
+            $imagen = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_imagen', true);
+            $titulo = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_titulo', true);
+
+            if ($imagen && $titulo) {
+                echo '<div class="col-md-2 mb-4">';
+                echo '<div class="card h-100">';
+                echo '<img src="' . esc_url($imagen) . '" class="card-img-top" alt="Imagen de la tarjeta ' . $i . '">';
+                echo '<div class="card-body">';
+                echo '<h5 class="card-title">' . esc_html($titulo) . '</h5>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            } else {
+                echo 'No se encontraron datos para tarjeta ' . $i . '.';
+            }
         }
         ?>
     </div>
 </div>
+
+
 
 <main>
     <div class="section mt-4">
