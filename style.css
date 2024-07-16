@@ -417,29 +417,31 @@ Estilos para la barra de navegación
 		padding: 3px; /* Menor espaciado interno */
 	}
 }
-/*---------------------------------------------------------------------------------------------------------------------
-Destacados
------------------------------------------------------------------------------------------------------------------------*/
-/* Estilos para las tarjetas "card" dentro de la sección "destacados" */
-/* CSS Personalizado para ajustar el tamaño de las tarjetas */
-
+/*-------------------------------------------------------------------------------------------------------------------------------
+Slider de destacados
+------------------------------------------------------------------------------------------------------------------------------*/
+/* Estilos para el contenedor del slider */
+/* Estilos para el contenedor del slider */
 .slider-container {
 	width: 100%; /* Ancho del contenedor del slider */
 	margin: 0 auto; /* Centrar el slider horizontalmente */
 	overflow: hidden; /* Ocultar desbordamientos */
 }
 
+/* Estilos para el track del slider */
 .slider-track {
 	display: flex; /* Mostrar los slides en una línea */
 	animation: scroll 40s linear infinite; /* Animación de desplazamiento infinito */
 }
 
+/* Estilos para cada slide del slider */
 .slide {
 	min-width: 250px; /* Ancho mínimo de cada tarjeta */
 	flex: 0 0 auto; /* No crecer ni encoger, tamaño automático */
 	margin-right: 10px; /* Espacio entre slides */
 }
 
+/* Estilos generales para las tarjetas */
 .card {
 	width: 100%; /* Ancho completo de la tarjeta */
 	border: none; /* Borde de la tarjeta */
@@ -447,28 +449,33 @@ Destacados
 	overflow: hidden; /* Ocultar desbordamientos */
 }
 
+/* Estilos para la imagen superior de la tarjeta */
 .card-img-top {
 	width: 100%; /* Imagen ajustada al ancho de la tarjeta */
 	height: auto; /* Altura automática */
 	object-fit: cover; /* Ajustar imagen dentro de la tarjeta */
 }
 
+/* Animación para el desplazamiento del slider */
 @keyframes scroll {
 	0% {
 		transform: translateX(0); /* Comienza desde la posición inicial */
 	}
 	100% {
 		transform: translateX(
-			-100%
+			calc(-250px * 7)
 		); /* Desplazamiento completo hacia la izquierda */
 	}
 }
+
+/* Estilos para las tarjetas personalizadas */
 .custom-card {
 	width: 180px; /* Ancho deseado para la tarjeta */
 	height: 150px; /* Ajustar la altura automáticamente */
 	margin: auto; /* Centrar las tarjetas */
 }
 
+/* Estilos para la imagen dentro de las tarjetas personalizadas */
 .custom-card img {
 	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
 	height: 80px; /* Altura de la imagen ajustada */
@@ -476,10 +483,12 @@ Destacados
 	padding: 10px 26px 0 26px;
 }
 
+/* Estilos para el cuerpo de la tarjeta personalizada */
 .custom-card .card-body {
 	padding: 10px; /* Padding interno para el contenido de la tarjeta */
 }
 
+/* Estilos para el título de la tarjeta personalizada */
 .custom-card .card-title {
 	font-size: 1rem; /* Tamaño de fuente del título */
 }
@@ -490,22 +499,24 @@ Destacados
 	border-radius: 8px; /* Bordes redondeados */
 	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
-	margin: 15px 45px 15px 45px;
+	margin: 15px 45px 15px 45px; /* Márgenes superior, derecho, inferior e izquierdo */
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
-/* Estilos de ejemplo para ajustar el tamaño de las tarjetas */
+/* Estilos para las tarjetas dentro de la sección destacados */
 .destacados .card {
-	border: none; /* Borde delgado gris */
+	border: none; /* Sin borde */
 	border-radius: 8px; /* Bordes redondeados */
 	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
 }
 
+/* Efecto de elevación al pasar el mouse sobre las tarjetas destacadas */
 .destacados .card:hover {
-	transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+	transform: translateY(-5px); /* Efecto de elevación */
 }
 
+/* Estilos para la imagen dentro de las tarjetas destacadas */
 .destacados .card img {
 	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
 	height: auto; /* Altura automática para mantener la proporción */
@@ -513,26 +524,31 @@ Destacados
 	border-bottom: none; /* Borde inferior delgado gris para separar la imagen */
 }
 
+/* Estilos para el cuerpo de las tarjetas destacadas */
 .destacados .card-body {
 	padding: 15px; /* Padding interno */
 }
 
+/* Estilos para el título de las tarjetas destacadas */
 .destacados .card-title {
 	font-size: 1rem; /* Tamaño de fuente del título */
 	margin-bottom: 0; /* Margen inferior */
-	text-align: center;
-	justify-content: center;
+	text-align: center; /* Alinear texto al centro */
+	justify-content: center; /* Justificar contenido al centro */
 }
 
+/* Estilos para el texto secundario de las tarjetas destacadas */
 .destacados .card-text {
 	color: #666; /* Color del texto secundario */
 }
 
+/* Estilos para el botón primario dentro de las tarjetas destacadas */
 .destacados .btn-primary {
 	background-color: #007bff; /* Color de fondo del botón primario */
 	border-color: #007bff; /* Color del borde del botón primario */
 }
 
+/* Estilos al pasar el mouse sobre el botón primario dentro de las tarjetas destacadas */
 .destacados .btn-primary:hover {
 	background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
 	border-color: #0056b3; /* Color del borde del botón primario al pasar el mouse */
