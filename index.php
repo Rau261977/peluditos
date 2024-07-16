@@ -2,7 +2,7 @@
 
 <!-- presentacion -->
 <header>
-    <div class="container-fluid">
+    <div class="container-fluid py-3">
         <div class="row">
             <div class="col-lg-8 d-flex flex-column">
                 <div id="miSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
@@ -72,17 +72,16 @@
     </div>
 </header>
 
-<div class="section destacados mb-4">
+<div class="section destacados">
     <div class="row justify-content-center">
         <?php
-        // Mostrar 6 tarjetas destacadas
-        for ($i = 1; $i <= 6; $i++) {
+        for ($i = 1; $i <= 7; $i++) {
             $imagen = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_imagen', true);
             $titulo = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_titulo', true);
 
             if ($imagen && $titulo) {
-                echo '<div class="col-md-2 mb-4">';
-                echo '<div class="card h-100">';
+                echo '<div class="col">';
+                echo '<div class="card h-100 custom-card">';
                 echo '<img src="' . esc_url($imagen) . '" class="card-img-top" alt="Imagen de la tarjeta ' . $i . '">';
                 echo '<div class="card-body">';
                 echo '<h5 class="card-title">' . esc_html($titulo) . '</h5>';
@@ -142,17 +141,33 @@
 
             <div class="col-md-3">
                 <div class="sidebar2">
-                    <h2>Últimas Publicaciones</h2>
+                    <h2>Notas de interés</h2>
                     <?php
                     $recent_posts = wp_get_recent_posts(array('numberposts' => 5));
+
                     foreach ($recent_posts as $post) {
+                        setup_postdata($post);
+
+                        // Obtener la imagen destacada
+                        $thumbnail = get_the_post_thumbnail($post['ID'], 'thumbnail', array('class' => 'post-thumbnail'));
+
+                        // Obtener el extracto del contenido (20 palabras)
+                        $content = wp_trim_words(get_the_content(), 20);
+
+                        // Mostrar la imagen, título y extracto
                         echo '<div class="post-item">';
+                        echo '<div class="post-thumbnail">' . $thumbnail . '</div>';
                         echo '<h3><a href="' . get_permalink($post["ID"]) . '">' . $post["post_title"] . '</a></h3>';
+                        echo '<p>' . $content . '</p>';
                         echo '</div>';
                     }
+
+                    // Restaurar datos originales de la publicación
+                    wp_reset_postdata();
                     ?>
                 </div>
             </div>
+
         </div>
         </section>
 

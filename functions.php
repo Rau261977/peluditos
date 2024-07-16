@@ -86,7 +86,7 @@ function my_custom_login_logo()
             padding-bottom: 30px;
         }
     </style>
-<?php
+    <?php
 }
 add_action('login_enqueue_scripts', 'my_custom_login_logo');
 
@@ -202,6 +202,81 @@ add_action('wp_enqueue_scripts', 'mytheme_add_woocommerce_styles');
 //oculta el titulo de la tienda
 
 add_filter('woocommerce_show_page_title', '__return_false');
+
+//---------------------------------------------------------------------------------------------------------------
+
+function agregar_metabox_tarjetas()
+{
+    add_meta_box(
+        'tarjetas_meta_box', // ID de la metabox
+        'Tarjetas Destacadas', // Título de la metabox
+        'mostrar_metabox_tarjetas', // Callback para mostrar la metabox
+        'page', // Pantalla donde se mostrará
+        'normal', // Contexto donde se mostrará
+        'high' // Prioridad de la metabox
+    );
+}
+add_action('add_meta_boxes', 'agregar_metabox_tarjetas');
+
+function mostrar_metabox_tarjetas($post)
+{
+    for ($i = 1; $i <= 6; $i++) {
+        $imagen = get_post_meta($post->ID, 'tarjeta_' . $i . '_imagen', true);
+        $titulo = get_post_meta($post->ID, 'tarjeta_' . $i . '_titulo', true);
+    ?>
+        <p>
+            <label for="tarjeta_<?php echo $i; ?>_imagen">Imagen Tarjeta <?php echo $i; ?>:</label>
+            <input type="text" id="tarjeta_<?php echo $i; ?>_imagen" name="tarjeta_<?php echo $i; ?>_imagen" value="<?php echo esc_url($imagen); ?>" size="30" />
+            <input type="button" id="tarjeta_<?php echo $i; ?>_imagen_button" class="button" value="Seleccionar Imagen" />
+        </p>
+        <p>
+            <label for="tarjeta_<?php echo $i; ?>_titulo">Título Tarjeta <?php echo $i; ?>:</label>
+            <input type="text" id="tarjeta_<?php echo $i; ?>_titulo" name="tarjeta_<?php echo $i; ?>_titulo" value="<?php echo esc_html($titulo); ?>" size="30" />
+        </p>
+        <script>
+            jQuery(document).ready(function($) {
+                $('#tarjeta_<?php echo $i; ?>_imagen_button').click(function(e) {
+                    e.preventDefault();
+                    var image_frame;
+                    if (image_frame) {
+                        image_frame.open();
+                    }
+                    image_frame = wp.media({
+                        title: 'Seleccionar Imagen',
+                        multiple: false,
+                        library: {
+                            type: 'image',
+                        },
+                        button: {
+                            text: 'Usar esta imagen'
+                        }
+                    });
+
+                    image_frame.on('select', function() {
+                        var attachment = image_frame.state().get('selection').first().toJSON();
+                        $('#tarjeta_<?php echo $i; ?>_imagen').val(attachment.url);
+                    });
+
+                    image_frame.open();
+                });
+            });
+        </script>
+<?php
+    }
+}
+
+function guardar_metabox_tarjetas($post_id)
+{
+    for ($i = 1; $i <= 6; $i++) {
+        if (isset($_POST['tarjeta_' . $i . '_imagen'])) {
+            update_post_meta($post_id, 'tarjeta_' . $i . '_imagen', sanitize_text_field($_POST['tarjeta_' . $i . '_imagen']));
+        }
+        if (isset($_POST['tarjeta_' . $i . '_titulo'])) {
+            update_post_meta($post_id, 'tarjeta_' . $i . '_titulo', sanitize_text_field($_POST['tarjeta_' . $i . '_titulo']));
+        }
+    }
+}
+add_action('save_post', 'guardar_metabox_tarjetas');
 
 
 

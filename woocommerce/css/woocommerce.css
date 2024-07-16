@@ -1,5 +1,87 @@
 /* woocommerce/css/woocommerce.css */
 
+/*---------------------------------------------------------------------------------------------------------------------
+Destacados
+-----------------------------------------------------------------------------------------------------------------------*/
+/* Estilos para las tarjetas "card" dentro de la sección "destacados" */
+/* CSS Personalizado para ajustar el tamaño de las tarjetas */
+.custom-card {
+	width: 180px; /* Ancho deseado para la tarjeta */
+	height: 150px; /* Ajustar la altura automáticamente */
+	margin: auto; /* Centrar las tarjetas */
+}
+
+.custom-card img {
+	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
+	height: 80px; /* Altura de la imagen ajustada */
+	object-fit: cover; /* Ajuste de la imagen para cubrir el contenido */
+	padding: 10px 26px 0 26px;
+}
+
+.custom-card .card-body {
+	padding: 10px; /* Padding interno para el contenido de la tarjeta */
+}
+
+.custom-card .card-title {
+	font-size: 1rem; /* Tamaño de fuente del título */
+}
+
+/* Estilos para la sección destacados */
+.destacados {
+	border: none; /* Borde delgado gris */
+	border-radius: 8px; /* Bordes redondeados */
+	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
+	margin-top: 15px;
+}
+
+/* Estilos de ejemplo para ajustar el tamaño de las tarjetas */
+.destacados .card {
+	border: none; /* Borde delgado gris */
+	border-radius: 8px; /* Bordes redondeados */
+	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
+}
+
+.destacados .card:hover {
+	transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.destacados .card img {
+	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
+	height: auto; /* Altura automática para mantener la proporción */
+	object-fit: cover; /* Ajuste de la imagen para cubrir el contenido */
+	border-bottom: none; /* Borde inferior delgado gris para separar la imagen */
+}
+
+.destacados .card-body {
+	padding: 15px; /* Padding interno */
+}
+
+.destacados .card-title {
+	font-size: 1rem; /* Tamaño de fuente del título */
+	margin-bottom: 0; /* Margen inferior */
+	text-align: center;
+	justify-content: center;
+}
+
+.destacados .card-text {
+	color: #666; /* Color del texto secundario */
+}
+
+.destacados .btn-primary {
+	background-color: #007bff; /* Color de fondo del botón primario */
+	border-color: #007bff; /* Color del borde del botón primario */
+}
+
+.destacados .btn-primary:hover {
+	background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
+	border-color: #0056b3; /* Color del borde del botón primario al pasar el mouse */
+}
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+
 /* Estilo personalizado para productos */
 .woocommerce ul.products li.product a img {
 	border: 1px solid #eee;
@@ -60,7 +142,7 @@ ul.products li.product {
 
 /* Ajustes adicionales para las tarjetas */
 .card {
-	border: 1px solid #ddd;
+	border: none;
 	padding: 20px;
 }
 
@@ -190,80 +272,3 @@ Estilos para el cuadro de selección de orden en WooCommerce
 	transform: translateY(-50%);
 	pointer-events: none; /* Evitar que el clic se propague al select */
 }
-
-/*---------------------------------------------------------------------------------------------------------------------
-Destacados
------------------------------------------------------------------------------------------------------------------------*/
-/* Estilos para las tarjetas "card" dentro de la sección "destacados" */
-.destacados {
-	border: none; /* Borde delgado gris */
-	border-radius: 8px; /* Bordes redondeados */
-	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
-	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
-	margin-top: 15px;
-}
-.section.destacados {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1920px; /* Ajusta este valor según el ancho máximo deseado */
-	padding-left: 15px; /* Ajusta el padding lateral izquierdo */
-	padding-right: 15px; /* Ajusta el padding lateral derecho */
-}
-
-.section.destacados .row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
-
-.section.destacados .col-md-2 {
-	flex: 0 0 auto;
-	width: 16.6667%;
-	max-width: 16.6667%;
-	padding: 0 15px;
-	box-sizing: border-box;
-}
-
-.section.destacados .card {
-	border: 1px solid #ddd; /* Borde delgado gris */
-	border-radius: 8px; /* Bordes redondeados */
-	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
-	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transiciones suaves */
-}
-
-.section.destacados .card:hover {
-	transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-.section.destacados .card img {
-	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
-	height: auto; /* Altura automática para mantener la proporción */
-	object-fit: cover; /* Ajuste de la imagen para cubrir el contenido */
-	border-bottom: 1px solid #ddd; /* Borde inferior delgado gris para separar la imagen */
-}
-
-.section.destacados .card-body {
-	padding: 15px; /* Padding interno */
-}
-
-.section.destacados .card-title {
-	font-size: 1.1rem; /* Tamaño de fuente del título */
-	margin-bottom: 0.5rem; /* Margen inferior */
-}
-
-.section.destacados .card-text {
-	color: #666; /* Color del texto secundario */
-}
-
-.section.destacados .btn-primary {
-	background-color: #007bff; /* Color de fondo del botón primario */
-	border-color: #007bff; /* Color del borde del botón primario */
-}
-
-.section.destacados .btn-primary:hover {
-	background-color: #0056b3; /* Color de fondo del botón primario al pasar el mouse */
-	border-color: #0056b3; /* Color del borde del botón primario al pasar el mouse */
-}
-
-/*---------------------------------------------------------------------------------------------------------------------*/
