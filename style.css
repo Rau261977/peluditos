@@ -431,7 +431,7 @@ Slider de destacados
 /* Estilos para el track del slider */
 .slider-track {
 	display: flex; /* Mostrar los slides en una línea */
-	animation: scroll 40s linear infinite; /* Animación de desplazamiento infinito */
+	animation: scroll 20s linear infinite; /* Animación de desplazamiento infinito */
 }
 
 /* Estilos para cada slide del slider */
@@ -457,14 +457,25 @@ Slider de destacados
 }
 
 /* Animación para el desplazamiento del slider */
-@keyframes scroll {
+@-webkit-keyframes scroll {
 	0% {
-		transform: translateX(0); /* Comienza desde la posición inicial */
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
 	}
 	100% {
-		transform: translateX(
-			calc(-250px * 7)
-		); /* Desplazamiento completo hacia la izquierda */
+		-webkit-transform: translateX(calc(-250px * 7));
+		transform: translateX(calc(-250px * 7));
+	}
+}
+
+@keyframes scroll {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(calc(-250px * 7));
+		transform: translateX(calc(-250px * 7));
 	}
 }
 
