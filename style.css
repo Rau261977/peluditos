@@ -421,7 +421,6 @@ Estilos para la barra de navegación
 Slider de destacados
 ------------------------------------------------------------------------------------------------------------------------------*/
 /* Estilos para el contenedor del slider */
-/* Estilos para el contenedor del slider */
 .slider-container {
 	width: 100%; /* Ancho del contenedor del slider */
 	margin: 0 auto; /* Centrar el slider horizontalmente */
@@ -431,7 +430,7 @@ Slider de destacados
 /* Estilos para el track del slider */
 .slider-track {
 	display: flex; /* Mostrar los slides en una línea */
-	animation: scroll 20s linear infinite; /* Animación de desplazamiento infinito */
+	animation: scroll 20s linear infinite; /* Ajustar la duración de la animación */
 }
 
 /* Estilos para cada slide del slider */
@@ -457,25 +456,14 @@ Slider de destacados
 }
 
 /* Animación para el desplazamiento del slider */
-@-webkit-keyframes scroll {
-	0% {
-		-webkit-transform: translateX(0);
-		transform: translateX(0);
-	}
-	100% {
-		-webkit-transform: translateX(calc(-250px * 7));
-		transform: translateX(calc(-250px * 7));
-	}
-}
-
 @keyframes scroll {
 	0% {
-		-webkit-transform: translateX(0);
 		transform: translateX(0);
 	}
 	100% {
-		-webkit-transform: translateX(calc(-250px * 7));
-		transform: translateX(calc(-250px * 7));
+		transform: translateX(
+			calc(-250px * 7 - 10px * 7)
+		); /* Ajuste del desplazamiento completo */
 	}
 }
 

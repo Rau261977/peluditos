@@ -75,41 +75,47 @@
     <div class="slider-container">
         <div class="slider-track">
             <?php
-            // Obtener el número total de tarjetas disponibles
-            $total_tarjetas = 7;
+            for ($i = 1; $i <= 7; $i++) {
+                $imagen = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_imagen', true);
+                $titulo = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_titulo', true);
 
-            // Determinar cuántas tarjetas queremos mostrar en cada iteración
-            $tarjetas_por_vista = 4;
+                if ($imagen && $titulo) {
+                    echo '<div class="slide">';
+                    echo '<div class="card h-100 custom-card">';
+                    echo '<img src="' . esc_url($imagen) . '" class="card-img-top" alt="Imagen de la tarjeta ' . $i . '">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . esc_html($titulo) . '</h5>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    echo 'No se encontraron datos para tarjeta ' . $i . '.';
+                }
+            }
 
-            // Calcular cuántas veces debemos repetir las tarjetas para lograr el desplazamiento infinito
-            // Puedes ajustar el número aquí según tus necesidades
-            $repeticiones_totales = 100; // Número fijo de repeticiones
+            // Duplicar el contenido para la animación suave
+            for ($i = 1; $i <= 7; $i++) {
+                $imagen = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_imagen', true);
+                $titulo = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_titulo', true);
 
-            // Loop para repetir las tarjetas
-            for ($repeticion = 0; $repeticion < $repeticiones_totales; $repeticion++) {
-                // Loop para mostrar cada tarjeta
-                for ($i = 1; $i <= $total_tarjetas; $i++) {
-                    $imagen = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_imagen', true);
-                    $titulo = get_post_meta(get_the_ID(), 'tarjeta_' . $i . '_titulo', true);
-
-                    if ($imagen && $titulo) {
-                        echo '<div class="slide">';
-                        echo '<div class="card h-100 custom-card">';
-                        echo '<img src="' . esc_url($imagen) . '" class="card-img-top" alt="Imagen de la tarjeta ' . $i . '">';
-                        echo '<div class="card-body">';
-                        echo '<h5 class="card-title">' . esc_html($titulo) . '</h5>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    } else {
-                        echo 'No se encontraron datos para tarjeta ' . $i . '.';
-                    }
+                if ($imagen && $titulo) {
+                    echo '<div class="slide">';
+                    echo '<div class="card h-100 custom-card">';
+                    echo '<img src="' . esc_url($imagen) . '" class="card-img-top" alt="Imagen de la tarjeta ' . $i . '">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . esc_html($titulo) . '</h5>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    echo 'No se encontraron datos para tarjeta ' . $i . '.';
                 }
             }
             ?>
         </div>
     </div>
 </div>
+
 
 
 
