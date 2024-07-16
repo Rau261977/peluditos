@@ -553,9 +553,28 @@ Slider de destacados
 	border-color: #0056b3; /* Color del borde del botón primario al pasar el mouse */
 }
 
-/*---------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------------------------------
+Estilos del sidebar
+----------------------------------------------------------------------------------------------------------------------*/
+/* Asegurar que la imagen ocupe todo el ancho disponible del contenedor */
+.post-thumbnail img {
+	width: 100%;
+	height: auto; /* Mantener la proporción de la imagen */
+	object-fit: cover; /* Ajustar la imagen para cubrir el área del contenedor */
+}
+
+/* Opcional: Estilos adicionales para mejorar la apariencia */
+.post-item {
+	margin-bottom: 20px; /* Espacio entre los elementos de la publicación */
+}
+
+.post-thumbnail {
+	overflow: hidden; /* Asegurar que no haya desbordamiento del contenedor */
+	border-radius: 5px; /* Bordes redondeados para las imágenes */
+}
 
 /*----------------------------------------------------------------------------------------------------------------------
+
  Estilos generales del contenedor de logos de marcas
  -----------------------------------------------------------------------------------------------------------------------*/
 
