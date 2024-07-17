@@ -138,6 +138,36 @@
 		flex: 1 1 100%; /* Una columna por fila */
 	}
 }
+/* Estilos para el botón dentro de las tarjetas de producto */
+.grid-section .card a.btn-primary {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.grid-section .card a.btn-primary:hover {
+	color: #fff;
+	background-color: #0056b3;
+	border-color: #0056b3;
+}
+
+.grid-section .card a.btn-primary:focus,
+.grid-section .card a.btn-primary.focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5);
+}
 
 /* -----------------------------------------------------------------------------------------------------
 Estilos para la barra lateral y el contenido de la tienda

@@ -27,6 +27,7 @@
                     <a class="navbar-brand" href="/index.php">
                         <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
                     </a>
+
                 </div>
             </div>
 
