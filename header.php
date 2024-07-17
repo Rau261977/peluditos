@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <nav class="navbar">
 
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-3 col-12">
                 <div class="d-flex">
                     <a class="navbar-brand" href="/index.php">
                         <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
@@ -31,51 +31,52 @@
                 </div>
             </div>
 
+
             <div class="col-lg-6 col-12">
+                <nav class="navbar navbar-expand-lg">
 
-
-
-            </div>
-
-        </nav>
-        <nav class="navbar navbar-expand-lg">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <?php
-                wp_nav_menu([
-                    'menu' => 'Primary',
-                    'menu_class' => 'navbar-nav',
-                    'container' => false,
-                    'walker' => new My_Theme_Walker_Nav_Menu(),
-                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                        <?php
+                        wp_nav_menu([
+                            'menu' => 'Primary',
+                            'menu_class' => 'navbar-nav',
+                            'container' => false,
+                            'walker' => new My_Theme_Walker_Nav_Menu(),
+                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Servicios
-                        </a>
-                        <ul class="dropdown-menu py-3 my-3">
-                            <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
-                            <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
-                            <li><a class="dropdown-item" href="community">menu 3</a></li>
-                        </ul>
-                    </li></ul>'
-                ]);
-                ?>
-            </div>
-            <section class="container-search">
-                <?php if (class_exists('WooCommerce')) : ?>
-                    <form role=" search" method="get" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
-                        <label class="screen-reader-text" for="woocommerce-product-search-field"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
-                        <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="<?php echo esc_attr__('Search products&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-                        <button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>"><?php echo esc_html_x('Search', 'submit button', 'woocommerce'); ?></button>
-                        <input type="hidden" name="post_type" value="product" />
-                    </form>
-                <?php endif; ?>
-            </section>
+                            </a>
+                           <ul class="dropdown-menu py-3 my-3">
+                           <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
+                           <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
+                           <li><a class="dropdown-item" href="community">menu 3</a></li>
+                           </ul>
+                           </li></ul>'
+                        ]);
+                        ?>
+                    </div>
 
+
+                </nav>
+            </div>
+            <div class="col-lg-3 col-12">
+                <section class="container-search">
+                    <?php if (class_exists('WooCommerce')) : ?>
+                        <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
+                            <label class="screen-reader-text" for="woocommerce-product-search-field"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
+                            <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="<?php echo esc_attr__('Search products&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                            <button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>"><?php echo esc_html_x('Search', 'submit button', 'woocommerce'); ?></button>
+                            <input type="hidden" name="post_type" value="product" />
+                        </form>
+                    <?php endif; ?>
+                </section>
+            </div>
         </nav>
+
 
     </main>
 

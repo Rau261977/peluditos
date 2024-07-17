@@ -57,7 +57,6 @@ body {
 	background-color: #01af01; /* Fondo blanco semi-transparente */
 	z-index: 10; /* Asegura que el navbar esté por encima del slider */
 	position: relative; /* Permite ajustar la posición del navbar */
-	border-bottom: 1px solid white; /* Puedes ajustar el color y el grosor según tus necesidades */
 }
 
 /* Estilos para la barra de navegación en su estado achicado */
@@ -198,8 +197,8 @@ Estilos para la barra de navegación
 /* Estilos para el formulario de búsqueda en dispositivos grandes */
 .woocommerce-product-search {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	align-items: end;
+	justify-content: end;
 	margin-top: 0px; /* Ajusta el margen superior según sea necesario */
 	padding-right: 30px;
 	padding-left: 30px;
@@ -572,7 +571,12 @@ Estilos del sidebar
 	overflow: hidden; /* Asegurar que no haya desbordamiento del contenedor */
 	border-radius: 5px; /* Bordes redondeados para las imágenes */
 }
-
+.sidebar2 {
+	position: -webkit-sticky; /* Para navegadores basados en WebKit */
+	position: sticky;
+	top: 20px; /* Ajusta la distancia desde el borde superior */
+	z-index: 1000; /* Ajusta la posición en el eje z para que esté sobre otros elementos */
+}
 /*----------------------------------------------------------------------------------------------------------------------
 
  Estilos generales del contenedor de logos de marcas
