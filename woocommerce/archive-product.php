@@ -41,7 +41,6 @@ do_action('woocommerce_shop_loop_header');
 ?>
 
 
-
 <div class="section mt-4">
 	<div class="row">
 		<div class="col-md-9">
