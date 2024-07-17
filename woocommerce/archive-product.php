@@ -39,7 +39,14 @@ do_action('woocommerce_before_main_content');
 do_action('woocommerce_shop_loop_header');
 
 ?>
+<?php
+// Definir el ID de la página de inicio (o la página específica donde están los metadatos)
+$page_id = 108; // Reemplaza 2 con el ID de tu página de inicio o la página específica
 
+// Incluir el template part y pasar el ID de la página
+set_query_var('page_id', $page_id);
+get_template_part('template-parts/destacados', 'slider');
+?>
 
 <div class="section mt-4">
 	<div class="row">
