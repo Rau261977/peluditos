@@ -150,7 +150,7 @@
                         echo '<div class="card-body">';
                         echo '<h5 class="card-title">' . esc_html($product->get_name()) . '</h5>';
                         echo '<p class="card-text">' . wp_kses_post(wp_trim_words($product->get_description(), 20)) . '</p>';
-                        echo '<a href="' . esc_url($product->get_permalink()) . '" class="btn btn-primary">Ver Producto</a>';
+                        echo '<a href="' . esc_url($product->get_permalink()) . '"class="btn btn-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Ver Producto</a>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';

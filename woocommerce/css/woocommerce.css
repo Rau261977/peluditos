@@ -41,52 +41,102 @@
 
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
-/* Contenedor principal de la lista de productos */
-ul.products {
+/* Estilos generales para la sección grid */
+/* Estilos generales para la sección grid */
+.grid-section {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px; /* Espacio entre las tarjetas */
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	gap: 1rem;
+	padding: 1rem;
 }
 
-/* Elementos de la lista de productos */
-ul.products li.product {
-	flex: 0 1 calc(25% - 20px); /* Ajusta para que ocupe un cuarto del ancho del contenedor, menos el espacio del gap */
-	box-sizing: border-box; /* Incluye el padding y border en el ancho total */
-	list-style: none;
+/* Estilos para los elementos individuales del grid */
+.grid-section .col {
+	flex: 1 1 calc(25% - 1rem); /* Cuatro columnas por fila con espacio entre ellas */
+	box-sizing: border-box;
 }
 
-/* Ajustes adicionales para las tarjetas */
-.card {
-	border: none;
-	padding: 20px;
+/* Estilos para las tarjetas */
+.grid-section .card {
+	border: none; /* Sin borde */
+	border-radius: 8px; /* Bordes redondeados */
+	overflow: hidden; /* Ocultar cualquier contenido que se desborde */
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-/* Imagen del producto */
-.card img {
-	max-width: 100%;
-	height: auto;
-	margin-bottom: 10px;
+/* Estilos para la imagen superior de la tarjeta */
+.grid-section .card-img-top {
+	width: 80%; /* Imagen ajustada al ancho de la tarjeta */
+	height: 240px; /* Altura fija */
+	object-fit: cover; /* Ajustar imagen dentro de la tarjeta */
 }
 
-/* Título del producto */
-.card h2 {
-	font-size: 1.2em;
-	margin-bottom: 10px;
+/* Efecto de elevación al pasar el mouse sobre las tarjetas */
+.grid-section .card:hover {
+	transform: translateY(-5px); /* Efecto de elevación */
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
 }
 
-/* Precio del producto */
-.card .price {
-	font-size: 1.1em;
-	color: #333;
-	margin-bottom: 10px;
+/* Estilos para el cuerpo de la tarjeta */
+.grid-section .card-body {
+	padding: 1rem; /* Espaciado interno */
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Centrar verticalmente */
+	align-items: center; /* Centrar horizontalmente */
+	flex-grow: 1;
 }
 
-/* Botón de añadir al carrito */
-.card .button {
-	margin-top: 10px;
+/* Estilos para el título de la tarjeta */
+.grid-section .card-title {
+	font-size: 1.25rem; /* Tamaño de fuente del título */
+	margin-bottom: 0.5rem; /* Margen inferior */
+	height: 1.2em; /* Altura fija para el título */
+	overflow: hidden; /* Ocultar desbordamientos */
+	text-overflow: ellipsis; /* Añadir puntos suspensivos en caso de desbordamiento */
+}
+
+/* Estilos para el texto de la tarjeta */
+.grid-section .card-text {
+	color: #666; /* Color del texto secundario */
+	margin-bottom: 1rem; /* Margen inferior */
+	height: 2em; /* Altura fija para la descripción */
+	overflow: hidden; /* Ocultar desbordamientos */
+	text-overflow: ellipsis; /* Añadir puntos suspensivos en caso de desbordamiento */
+}
+
+/* Estilos para el enlace del producto */
+.grid-section .card a {
+	font-size: medium;
+	text-decoration: none; /* Sin subrayado */
+	color: #ffffff; /* Color del enlace */
+	transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.grid-section .card a:hover {
+	color: #ffffff; /* Color del enlace al pasar el mouse */
+}
+
+/* Estilos para hacer la grid responsive */
+@media (max-width: 992px) {
+	.grid-section .col {
+		flex: 1 1 calc(33.333% - 1rem); /* Tres columnas por fila */
+	}
+}
+
+@media (max-width: 768px) {
+	.grid-section .col {
+		flex: 1 1 calc(50% - 1rem); /* Dos columnas por fila */
+	}
+}
+
+@media (max-width: 576px) {
+	.grid-section .col {
+		flex: 1 1 100%; /* Una columna por fila */
+	}
 }
 
 /* -----------------------------------------------------------------------------------------------------
