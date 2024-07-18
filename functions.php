@@ -278,13 +278,6 @@ function guardar_metabox_tarjetas($post_id)
 }
 add_action('save_post', 'guardar_metabox_tarjetas');
 //--------------------------------------------------------------------//
-function agregar_fuente_google()
-{
-    echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
-    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
-    echo '<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">';
-}
-add_action('wp_head', 'agregar_fuente_google');
 
 
 

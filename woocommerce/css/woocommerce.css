@@ -1,51 +1,15 @@
 /* woocommerce/css/woocommerce.css */
-
-/* Estilo personalizado para productos */
-.woocommerce ul.products li.product a img {
-	border: 1px solid #eee;
-	transition: all 0.3s ease-in-out;
-}
-
-.woocommerce ul.products li.product a img:hover {
-	border-color: #333;
-}
-
-/* Estilo personalizado para botones */
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button,
-.woocommerce #respond input#submit {
-	background-color: #007bff;
-	color: #fff;
-	border-radius: 0;
-	transition: background-color 0.3s ease-in-out;
-}
-
-.woocommerce a.button:hover,
-.woocommerce button.button:hover,
-.woocommerce input.button:hover,
-.woocommerce #respond input#submit:hover {
-	background-color: #0056b3;
-}
-
-/* Otros estilos personalizados */
-.woocommerce div.product .summary,
-.woocommerce div.product div.entry-summary {
-	padding: 20px;
-	background: #f7f7f7;
-}
-
-.woocommerce .star-rating span:before {
-	color: #ffcc00;
-}
+/* Estilos personalizados para los metadatos de los productos en WooCommerce */
 
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 /* Contenedor principal de la lista de productos */
+/* Contenedor principal de la lista de productos */
+
 ul.products {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px; /* Espacio entre las tarjetas */
+	gap: 10px; /* Espacio entre las tarjetas */
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -56,12 +20,19 @@ ul.products li.product {
 	flex: 0 1 calc(25% - 20px); /* Ajusta para que ocupe un cuarto del ancho del contenedor, menos el espacio del gap */
 	box-sizing: border-box; /* Incluye el padding y border en el ancho total */
 	list-style: none;
+	position: relative; /* Necesario para el posicionamiento relativo */
 }
 
 /* Ajustes adicionales para las tarjetas */
 .card {
-	border: 1px solid #ddd;
+	border: none;
 	padding: 20px;
+	position: relative; /* Permite el posicionamiento absoluto de elementos hijos */
+	text-decoration: none; /* Elimina el subrayado */
+}
+.card a {
+	text-decoration: none; /* Elimina el subrayado predeterminado */
+	color: inherit; /* Hereda el color de texto del padre */
 }
 
 /* Imagen del producto */
@@ -72,21 +43,64 @@ ul.products li.product {
 }
 
 /* Título del producto */
-.card h2 {
+ul.products li.product .card h2 {
 	font-size: 1.2em;
 	margin-bottom: 10px;
+	color: #333; /* Cambia el color del texto del título */
+	text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Botón de añadir al carrito */
+ul.products li.product .card .button {
+	margin-top: 10px;
+	background-color: #007bff; /* Cambia el color de fondo del botón */
+	color: #fff; /* Cambia el color del texto del botón */
+	border-color: #007bff; /* Cambia el color del borde del botón */
+	text-decoration: none !important; /* Elimina el subrayado */
+	transition: background-color 0.3s ease, border-color 0.3s ease,
+		color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo para el botón al pasar el mouse */
+ul.products li.product .card .button:hover {
+	background-color: #0056b3; /* Cambia el color de fondo del botón al pasar el mouse */
+	border-color: #0056b3; /* Cambia el color del borde del botón al pasar el mouse */
+	color: #fff; /* Cambia el color del texto del botón al pasar el mouse */
+	text-decoration: none !important; /* Elimina el subrayado al pasar el mouse */
 }
 
 /* Precio del producto */
 .card .price {
 	font-size: 1.1em;
-	color: #333;
-	margin-bottom: 10px;
+	color: #333; /* Cambia el color del texto del precio */
+	margin-bottom: 30px;
 }
 
-/* Botón de añadir al carrito */
-.card .button {
-	margin-top: 10px;
+/* Estilos para el título del producto */
+.woocommerce-loop-product__title {
+	font-size: 1.2em; /* Ejemplo de tamaño de fuente */
+	color: #333; /* Ejemplo de color de texto */
+	margin-bottom: 10px; /* Ejemplo de margen inferior */
+}
+
+/* Estilos para el precio */
+.price {
+	font-size: 1.1em; /* Ejemplo de tamaño de fuente */
+	color: #666; /* Ejemplo de color de texto */
+}
+
+/* Estilos para el botón de agregar al carrito */
+.add_to_cart_button {
+	margin-top: 20px !important;
+	display: inline-block; /* Asegura que el botón se muestre correctamente en línea */
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	text-transform: capitalize;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 10px;
+	font-size: small;
 }
 
 /* -----------------------------------------------------------------------------------------------------

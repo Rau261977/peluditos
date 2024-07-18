@@ -69,7 +69,7 @@ Logo
 ------------------------------------------------------------------------------------------------------------*/
 /* Tamaño máximo del logo en pantallas grandes */
 .navbar-logo {
-	max-width: 230px;
+	max-width: 220px;
 	transition: max-width 0.5s ease, margin 0.5s ease;
 }
 
@@ -478,12 +478,12 @@ Slider de destacados
 	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
 	height: 80px; /* Altura de la imagen ajustada */
 	object-fit: cover; /* Ajuste de la imagen para cubrir el contenido */
-	padding: 10px 26px 0 26px;
+	padding: 0px 26px 0 26px;
 }
 
 /* Estilos para el cuerpo de la tarjeta personalizada */
 .custom-card .card-body {
-	padding: 10px; /* Padding interno para el contenido de la tarjeta */
+	padding: 0px; /* Padding interno para el contenido de la tarjeta */
 }
 
 /* Estilos para el título de la tarjeta personalizada */
@@ -524,7 +524,7 @@ Slider de destacados
 
 /* Estilos para el cuerpo de las tarjetas destacadas */
 .destacados .card-body {
-	padding: 15px; /* Padding interno */
+	padding: 5px; /* Padding interno */
 }
 
 /* Estilos para el título de las tarjetas destacadas */
