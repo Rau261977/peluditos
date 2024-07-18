@@ -17,6 +17,7 @@
 </head>
 
 
+
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
         <!-- Navigation-->
@@ -69,17 +70,34 @@
                         <form role="search" method="get" class="woocommerce-product-search" action="<?php echo esc_url(home_url('/')); ?>">
                             <label class="screen-reader-text" for="woocommerce-product-search-field"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
                             <input type="search" id="woocommerce-product-search-field" class="search-field" placeholder="<?php echo esc_attr__('Search products&hellip;', 'woocommerce'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-                            <button type="submit" value="<?php echo esc_attr_x('Search', 'submit button', 'woocommerce'); ?>"><?php echo esc_html_x('Search', 'submit button', 'woocommerce'); ?></button>
                             <input type="hidden" name="post_type" value="product" />
                         </form>
                     <?php endif; ?>
                 </section>
             </div>
         </nav>
-
+        <section class="navbar-special" id="navbar-special">
+            <div class="centered-text">ENVÍOS A DOMICILIO EN LA PLATA Y ALREDEDORES&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp&nbsp&nbspTODAS LAS PROMOCIONES BANCARIAS&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp
+                &nbsp&nbspTODOS LOS MEDIOS DE PAGO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </div>
+        </section>
 
 
     </main>
+    <div class="header-cart">
+        <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Carrito" class="cart-image">
+            <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span> <!-- Contador de artículos -->
+        </a>
+        <div class="mini-cart">
+            <?php
+            // Mostrar el mini carrito aquí
+            if (is_cart()) {
+                wc_get_template('cart/mini-cart.php'); // Asegúrate de que el archivo mini-cart.php esté en el directorio de tu tema.
+            }
+            ?>
+        </div>
+    </div>
 
 
     <?php wp_footer(); ?>

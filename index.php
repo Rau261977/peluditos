@@ -4,8 +4,8 @@
 <header>
     <div class="container-fluid py-3">
         <div class="row">
-            <div class="col-lg-8 d-flex flex-column">
-                <div id="miSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="col-lg-12 d-flex flex-column">
+                <div id="miSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="<?php echo esc_url(get_theme_mod('mi_tema_slider_image1')); ?>" class="d-block w-100" alt="Imagen 1">
@@ -36,7 +36,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-lg-4 d-flex flex-column d-none d-lg-block">
+            <div class="col-lg-4 d-flex flex-column d-none">
                 <div id="miSlider2" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">

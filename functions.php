@@ -57,6 +57,13 @@ function add_assets()
 }
 add_action('wp_enqueue_scripts', 'add_assets');
 
+function agregar_scripts()
+{
+    // Enlazar script.js
+    wp_enqueue_script('script-js', get_template_directory_uri() . '/js/script.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'agregar_scripts');
+
 // Registrar una barra lateral
 function my_custom_theme_widgets_init()
 {
@@ -278,7 +285,17 @@ function guardar_metabox_tarjetas($post_id)
 }
 add_action('save_post', 'guardar_metabox_tarjetas');
 //--------------------------------------------------------------------//
-
+function use_custom_cart_template($template)
+{
+    if (is_page('carro')) {
+        $custom_template = get_stylesheet_directory() . '/woocommerce/cart/cart.php';
+        if (file_exists($custom_template)) {
+            return $custom_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'use_custom_cart_template');
 
 
 ?>
