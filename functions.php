@@ -297,5 +297,30 @@ function use_custom_cart_template($template)
 }
 add_filter('template_include', 'use_custom_cart_template');
 
+// encola un script de JavaScript que maneja la actualización del carrito.
+
+function my_theme_enqueue_scripts()
+{
+    wp_enqueue_script('ajax-update-cart', get_template_directory_uri() . '/js/ajax-update-cart.js', array('jquery'), null, true);
+
+    wp_localize_script('ajax-update-cart', 'ajax_update_cart', array(
+        'ajaxurl' => admin_url('admin-ajax.php')
+    ));
+}
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
+
+//manejar la petición AJAX y devolver el número actualizado de ítems en el carrito
+function update_cart_count()
+{
+    $cart_count = WC()->cart->get_cart_contents_count();
+
+    wp_send_json(array(
+        'cart_count' => $cart_count
+    ));
+}
+add_action('wp_ajax_update_cart_count', 'update_cart_count');
+add_action('wp_ajax_nopriv_update_cart_count', 'update_cart_count');
+
+
 
 ?>

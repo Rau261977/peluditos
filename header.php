@@ -49,7 +49,7 @@
                             'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
                             <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Servicios
+                            Alimentos
                             </a>
                            <ul class="dropdown-menu py-3 my-3">
                            <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
@@ -86,15 +86,13 @@
     </main>
     <div class="header-cart">
         <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Carrito" class="cart-image">
-            <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span> <!-- Contador de artículos -->
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Cart Icon" class="cart-image" />
+            <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         </a>
         <div class="mini-cart">
             <?php
             // Mostrar el mini carrito aquí
-            if (is_cart()) {
-                wc_get_template('cart/mini-cart.php'); // Asegúrate de que el archivo mini-cart.php esté en el directorio de tu tema.
-            }
+            wc_get_template('cart/mini-cart.php'); // Asegúrate de que el archivo mini-cart.php esté en el directorio de tu tema.
             ?>
         </div>
     </div>
