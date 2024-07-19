@@ -268,7 +268,7 @@ function mostrar_metabox_tarjetas($post)
                 });
             });
         </script>
-<?php
+    <?php
     }
 }
 
@@ -299,12 +299,14 @@ add_filter('template_include', 'use_custom_cart_template');
 
 // encola un script de JavaScript que maneja la actualización del carrito.
 
+
 function my_theme_enqueue_scripts()
 {
     wp_enqueue_script('ajax-update-cart', get_template_directory_uri() . '/js/ajax-update-cart.js', array('jquery'), null, true);
 
     wp_localize_script('ajax-update-cart', 'ajax_update_cart', array(
-        'ajaxurl' => admin_url('admin-ajax.php')
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'sound_url' => get_template_directory_uri() . '/woocommerce/sonidos/sonido-carrito.mp3'
     ));
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
@@ -320,6 +322,22 @@ function update_cart_count()
 }
 add_action('wp_ajax_update_cart_count', 'update_cart_count');
 add_action('wp_ajax_nopriv_update_cart_count', 'update_cart_count');
+
+
+add_filter('woocommerce_add_to_cart_fragments', 'update_mini_cart_fragments');
+
+function update_mini_cart_fragments($fragments)
+{
+    ob_start();
+    ?>
+    <div class="mini-cart">
+        <?php woocommerce_mini_cart(); ?>
+    </div>
+<?php
+    $fragments['.mini-cart'] = ob_get_clean();
+    return $fragments;
+}
+
 
 
 

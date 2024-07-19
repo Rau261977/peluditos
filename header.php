@@ -85,17 +85,38 @@
 
     </main>
     <div class="header-cart">
-        <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="cart-icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Cart Icon" class="cart-image" />
+        <a href="<?php echo wc_get_cart_url(); ?>" class="cart-icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Cart" class="cart-image">
             <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         </a>
         <div class="mini-cart">
-            <?php
-            // Mostrar el mini carrito aquí
-            wc_get_template('cart/mini-cart.php'); // Asegúrate de que el archivo mini-cart.php esté en el directorio de tu tema.
-            ?>
+            <?php if (WC()->cart->get_cart_contents_count() > 0) : ?>
+                <ul class="cart_list product_list_widget <?php echo isset($args['list_class']) ? esc_attr($args['list_class']) : ''; ?>">
+                    <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) :
+                        $_product = $cart_item['data'];
+                        if ($_product && $_product->exists() && $cart_item['quantity'] > 0) : ?>
+                            <li class="mini_cart_item">
+                                <a href="<?php echo esc_url(wc_get_cart_remove_url($cart_item_key)); ?>" class="remove" title="<?php _e('Remove this item', 'woocommerce'); ?>">&times;</a>
+                                <a href="<?php echo esc_url($_product->get_permalink()); ?>">
+                                    <?php echo $_product->get_image(); ?>
+                                    <?php echo $_product->get_name(); ?>
+                                </a>
+                                <span class="quantity"><?php echo sprintf('%s &times; %s', $cart_item['quantity'], WC()->cart->get_product_price($_product)); ?></span>
+                            </li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+                <p class="total"><strong><?php _e('Subtotal', 'woocommerce'); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+                <p class="buttons">
+                    <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="button"><?php _e('View Cart', 'woocommerce'); ?></a>
+                    <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="button checkout"><?php _e('Checkout', 'woocommerce'); ?></a>
+                </p>
+            <?php else : ?>
+                <p class="empty"><?php _e('No products in the cart.', 'woocommerce'); ?></p>
+            <?php endif; ?>
         </div>
     </div>
+
 
 
     <?php wp_footer(); ?>
