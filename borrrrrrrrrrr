@@ -1,0 +1,40 @@
+/* Estilo para el contenedor del mini carrito */
+.mini-cart {
+	display: none;
+	position: absolute;
+	top: 100%; /* Posiciona el mini carrito justo debajo del icono */
+	right: 0;
+	width: 330px; /* Ancho del mini carrito */
+	background-color: #fff; /* Fondo del mini carrito */
+	border: 1px solid #ddd; /* Borde del mini carrito */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del mini carrito */
+	z-index: 1000;
+	max-height: 500px; /* Ajusta esta altura según sea necesario */
+	overflow-y: auto; /* Habilita el desplazamiento vertical */
+	text-align: center; /* Centra el contenido de texto */
+}
+
+/* Estilo para cada elemento del producto en el mini carrito */
+.mini-cart .mini_cart_item {
+	display: flex;
+	flex-direction: column; /* Alinea los elementos verticalmente */
+	align-items: center; /* Centra los elementos */
+	padding: 10px 0; /* Espaciado vertical entre productos */
+	border-bottom: 1px solid #eee; /* Línea divisoria entre productos */
+	text-align: center; /* Centra el texto dentro de cada elemento */
+}
+
+/* Estilo para la imagen del producto */
+.mini-cart .mini_cart_item img {
+	width: 50px; /* Tamaño de la imagen del producto */
+	height: 50px; /* Tamaño de la imagen del producto */
+	object-fit: cover; /* Mantiene la proporción de la imagen */
+	margin-bottom: 10px; /* Espaciado inferior de la imagen */
+}
+
+/* Estilo para el nombre del producto y detalles */
+.mini-cart .mini_cart_item .quantity {
+	font-size: 14px; /* Tamaño de fuente para la cantidad */
+	color: #999; /* Color del texto de la cantidad */
+	display: block; /* Asegura que la cantidad se muestre como un bloque */
+}

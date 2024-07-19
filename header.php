@@ -106,7 +106,10 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
-                <p class="total"><strong><?php _e('Subtotal', 'woocommerce'); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+                <p class="total">
+                    <strong><?php _e('Subtotal', 'woocommerce'); ?>:</strong>
+                    <span class="amount"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+                </p>
                 <p class="buttons">
                     <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="button"><?php _e('View Cart', 'woocommerce'); ?></a>
                     <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="button checkout"><?php _e('Checkout', 'woocommerce'); ?></a>
@@ -115,6 +118,7 @@
                 <p class="empty"><?php _e('No products in the cart.', 'woocommerce'); ?></p>
             <?php endif; ?>
         </div>
+
     </div>
 
 

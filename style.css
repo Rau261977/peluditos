@@ -818,12 +818,12 @@ Estilos para la página del carrito de WooCommerce
 }
 /*-----------------------------------------------------------------*/
 .header-cart {
-	position: fixed; /* Hacer que el carrito sea fijo en la pantalla */
-	top: 20px; /* Ajusta la distancia desde el borde superior */
-	right: 20px; /* Ajusta la distancia desde el borde derecho */
+	position: fixed;
+	top: 20px;
+	right: 20px;
 	display: flex;
 	align-items: center;
-	z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+	z-index: 1000;
 }
 
 .cart-icon {
@@ -834,121 +834,146 @@ Estilos para la página del carrito de WooCommerce
 }
 
 .cart-icon .cart-image {
-	width: 40px; /* Ajusta el tamaño del icono */
+	width: 40px;
 	height: auto;
 }
 
 .cart-count {
-	background-color: #ff000088; /* Color de fondo del contador */
-	color: #000000; /* Color del texto del contador */
+	background-color: #ff000088;
+	color: #000000;
 	border: 1px solid white;
 	border-radius: 50%;
 	padding: 8px 4px;
 	margin-left: 8px;
 	font-size: 15px;
 	line-height: 1;
-	min-width: 45px; /* Tamaño mínimo del contador */
-	text-align: center; /* Centrar el texto dentro del contador */
+	min-width: 45px;
+	text-align: center;
 }
 
 .mini-cart {
 	display: none;
 	position: absolute;
-	top: 100%; /* Posiciona el mini carrito justo debajo del icono */
+	top: 100%;
 	right: 0;
-	width: 250px; /* Ancho del mini carrito */
-	background-color: #fff; /* Fondo del mini carrito */
-	border: 1px solid #ddd; /* Borde del mini carrito */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del mini carrito */
+	width: 250px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	z-index: 1000;
-	max-height: 650px; /* Ajusta esta altura según sea necesario */
-	overflow-y: auto; /* Habilita el desplazamiento vertical */
+	max-height: 500px;
+	overflow-y: auto;
+	text-align: center;
 }
 
 .header-cart:hover .mini-cart {
 	display: block;
 }
 
-.cart-icon.cart-animate {
-	transform: scale(1.2);
-}
-
-/* Estilo para cada elemento del producto en el mini carrito */
-.mini-cart .cart-item {
+/* Estilo para el subtotal y el resultado del subtotal */
+.mini-cart .total {
+	padding: 10px 20px; /* Espaciado vertical y horizontal */
+	border-top: 1px solid #eee; /* Línea divisoria superior */
+	margin-top: 10px; /* Espaciado superior */
+	font-size: 16px; /* Tamaño de fuente para el subtotal */
+	font-weight: bold; /* Negrita para el subtotal */
+	color: #333; /* Color del texto */
+	text-align: center; /* Centra el texto */
+	box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 	display: flex;
-	align-items: center;
-	padding: 10px 0; /* Espaciado vertical entre productos */
-	border-bottom: 1px solid #eee; /* Línea divisoria entre productos */
+	justify-content: center; /* Centra el contenido dentro del contenedor */
+	align-items: center; /* Alinea verticalmente los elementos */
 }
 
-.mini-cart .cart-item:last-child {
-	border-bottom: none; /* Elimina la línea divisoria del último producto */
+.mini-cart .total strong {
+	margin-left: 10px; /* Margen a la derecha del texto "Subtotal" */
 }
 
-/* Estilo para la imagen del producto */
-.mini-cart .cart-item .product-image {
-	width: 50px; /* Tamaño de la imagen del producto */
-	height: 50px; /* Tamaño de la imagen del producto */
-	object-fit: cover; /* Mantiene la proporción de la imagen */
-	margin-right: 10px; /* Espaciado a la derecha de la imagen */
+.mini-cart .total .amount {
+	margin-right: 10px; /* Margen a la izquierda del monto del subtotal */
 }
 
-/* Estilo para el nombre del producto y detalles */
-.mini-cart .cart-item .product-details {
-	flex: 1; /* Permite que el contenedor ocupe todo el espacio disponible */
+/* Espacio entre los botones */
+.mini-cart .buttons {
+	margin-top: 10px; /* Espaciado superior entre los botones y el subtotal */
+	text-align: center; /* Centra los botones dentro del contenedor */
 }
 
-.mini-cart .cart-item .product-details .product-name {
-	display: none !important; /* Oculta el nombre del producto */
-	font-size: 14px; /* Tamaño de fuente para el nombre del producto */
-	font-weight: bold; /* Negrita para el nombre del producto */
-	color: #333; /* Color del texto del nombre */
-	margin-bottom: 5px; /* Espaciado inferior */
+.mini-cart .buttons .button {
+	display: inline-block; /* Asegura que los botones se muestren en línea */
+	margin: 0 5px; /* Espaciado horizontal entre los botones */
 }
 
 .mini-cart .cart_list {
-	list-style: none; /* Elimina los puntos de la lista */
-	padding: 0; /* Elimina el padding por defecto */
-	margin: 0; /* Elimina el margen por defecto */
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
-.mini-cart .cart_list .mini_cart_item {
-	border: none; /* Elimina cualquier borde */
-	margin: 0; /* Ajusta el margen si es necesario */
+.mini-cart .mini_cart_item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+	text-align: center;
 }
 
-.mini-cart .cart-item .product-details .product-price {
-	font-size: 14px; /* Tamaño de fuente para el precio */
-	color: #999; /* Color del texto del precio */
+.mini-cart .mini_cart_item:last-child {
+	border-bottom: none;
 }
 
-/* Estilo para el total del carrito */
-.mini-cart .cart-total {
+.mini-cart .mini_cart_item img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+.mini-cart .mini_cart_item .quantity {
+	font-size: 14px;
+	color: #999;
+	display: block;
+}
+
+.mini-cart .total {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 0; /* Espaciado vertical */
-	border-top: 1px solid #eee; /* Línea superior */
-	margin-top: 10px; /* Espaciado superior */
-	font-size: 16px; /* Tamaño de fuente para el total */
-	font-weight: bold; /* Negrita para el total */
-	color: #333; /* Color del texto */
+	padding: 10px 0;
+	border-top: 1px solid #eee;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
 }
 
-/* Estilo para el botón "Ver Carrito" */
-.mini-cart .view-cart-button {
-	display: block;
-	text-align: center; /* Centrar el texto dentro del botón */
-	padding: 10px 0; /* Espaciado interno del botón */
-	background-color: #4caf50; /* Fondo del botón */
-	color: #fff; /* Color del texto del botón */
-	border-radius: 5px; /* Bordes redondeados */
-	margin-top: 10px; /* Espaciado superior */
-	text-decoration: none; /* Eliminar subrayado del enlace */
-	font-weight: bold; /* Negrita para el texto del botón */
-	transition: background-color 0.3s ease; /* Transición suave para el fondo */
+.mini-cart .buttons {
+	text-align: center;
 }
 
-.mini-cart .view-cart-button:hover {
-	background-color: #45a049; /* Fondo del botón al pasar el mouse */
+.mini-cart .button {
+	display: inline-block;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	user-select: none;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.mini-cart .button:hover {
+	background-color: #45a049;
+}
+
+.mini-cart .empty {
+	padding: 10px;
+	color: #333;
 }

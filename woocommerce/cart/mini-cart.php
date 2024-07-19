@@ -34,16 +34,23 @@ do_action('woocommerce_before_mini_cart'); ?>
 						$cart_item_key
 					);
 					?>
-					<?php if (empty($product_permalink)) : ?>
-						<?php echo $thumbnail; ?>
-					<?php else : ?>
-						<a href="<?php echo esc_url($product_permalink); ?>">
+					<div class="product-details">
+						<?php if (!empty($product_permalink)) : ?>
+							<a href="<?php echo esc_url($product_permalink); ?>">
+								<span class="product-name"><?php echo $_product->get_name(); ?></span>
+							</a>
+						<?php else : ?>
+							<span class="product-name"><?php echo $_product->get_name(); ?></span>
+						<?php endif; ?>
+						<div class="product-thumbnail">
 							<?php echo $thumbnail; ?>
-						</a>
-					<?php endif; ?>
+						</div>
+					</div>
 					<?php echo wc_get_formatted_cart_item_data($cart_item); ?>
 					<?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('%s &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); ?>
 				</li>
+
+
 		<?php
 			}
 		}
