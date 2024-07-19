@@ -338,6 +338,43 @@ function update_mini_cart_fragments($fragments)
     return $fragments;
 }
 
+function enqueue_custom_scripts()
+{
+    wp_enqueue_script(
+        'custom-scripts',
+        get_template_directory_uri() . '/js/custom-scripts.js',
+        array('jquery'), // Dependencias, jQuery es necesario para este script
+        '1.0.0',
+        true // Cargar en el pie de página
+    );
+
+    // Asegúrate de que `wc_cart_params` esté disponible para el script
+    wp_localize_script('custom-scripts', 'wc_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+add_action('wp_ajax_woocommerce_update_cart_action', 'custom_update_cart_action');
+add_action('wp_ajax_nopriv_woocommerce_update_cart_action', 'custom_update_cart_action');
+
+function custom_update_cart_action()
+{
+    if (!isset($_POST['data'])) {
+        wp_send_json_error('No data sent');
+    }
+
+    parse_str($_POST['data'], $cart_data);
+
+    // Validar y actualizar las cantidades de los productos en el carrito
+    foreach ($cart_data['cart'] as $cart_item_key => $cart_item) {
+        WC()->cart->set_quantity($cart_item_key, $cart_item['qty'], true);
+    }
+
+    WC()->cart->calculate_totals();
+
+    wp_send_json_success();
+}
 
 
 
