@@ -17,6 +17,10 @@
  */
 
 defined('ABSPATH') || exit;
+
+// Llama al encabezado de tu tema
+get_header();
+
 /**
  * My Account navigation.
  *
@@ -34,3 +38,8 @@ do_action('woocommerce_account_navigation'); ?>
 	do_action('woocommerce_account_content');
 	?>
 </div>
+
+<?php
+// Llama al pie de página de tu tema
+get_footer();
+?>

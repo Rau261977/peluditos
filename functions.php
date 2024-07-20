@@ -415,8 +415,29 @@ function add_update_cart_button()
 }
 add_action('woocommerce_after_cart_table', 'add_update_cart_button');
 
+add_filter('template_include', 'custom_my_account_template', 99);
 
 
 
+add_filter('template_include', 'custom_my_account_template', 99);
+function custom_my_account_template($template)
+{
+    if (is_account_page()) {
+        $new_template = locate_template(array('/woocommerce/myaccount/my-account.php'));
+        if ('' != $new_template) {
+            return $new_template;
+        }
+    }
+    return $template;
+}
+
+function enqueue_my_account_styles()
+{
+    // Verifica que es la página de Mi Cuenta
+    if (is_account_page()) {
+        wp_enqueue_style('my-account-styles', get_template_directory_uri() . '/woocommerce/css/my-account-styles.css');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_my_account_styles');
 
 ?>

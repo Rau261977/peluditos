@@ -1,40 +1,27 @@
-/* Estilo para el contenedor del mini carrito */
-.mini-cart {
-	display: none;
-	position: absolute;
-	top: 100%; /* Posiciona el mini carrito justo debajo del icono */
-	right: 0;
-	width: 330px; /* Ancho del mini carrito */
-	background-color: #fff; /* Fondo del mini carrito */
-	border: 1px solid #ddd; /* Borde del mini carrito */
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del mini carrito */
-	z-index: 1000;
-	max-height: 500px; /* Ajusta esta altura según sea necesario */
-	overflow-y: auto; /* Habilita el desplazamiento vertical */
-	text-align: center; /* Centra el contenido de texto */
-}
+<?php
+/**
+ * My Account dashboard
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/dashboard.php.
+ *
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.5.0
+ */
 
-/* Estilo para cada elemento del producto en el mini carrito */
-.mini-cart .mini_cart_item {
-	display: flex;
-	flex-direction: column; /* Alinea los elementos verticalmente */
-	align-items: center; /* Centra los elementos */
-	padding: 10px 0; /* Espaciado vertical entre productos */
-	border-bottom: 1px solid #eee; /* Línea divisoria entre productos */
-	text-align: center; /* Centra el texto dentro de cada elemento */
-}
+defined('ABSPATH') || exit;
 
-/* Estilo para la imagen del producto */
-.mini-cart .mini_cart_item img {
-	width: 50px; /* Tamaño de la imagen del producto */
-	height: 50px; /* Tamaño de la imagen del producto */
-	object-fit: cover; /* Mantiene la proporción de la imagen */
-	margin-bottom: 10px; /* Espaciado inferior de la imagen */
-}
+// Obtén el usuario actual
+$current_user = wp_get_current_user();
 
-/* Estilo para el nombre del producto y detalles */
-.mini-cart .mini_cart_item .quantity {
-	font-size: 14px; /* Tamaño de fuente para la cantidad */
-	color: #999; /* Color del texto de la cantidad */
-	display: block; /* Asegura que la cantidad se muestre como un bloque */
+// Verifica si el usuario está definido y es un objeto
+if ($current_user instanceof WP_User) {
+    $display_name = $current_user->display_name;
+} else {
+    $display_name = 'Usuario'; // Valor por defecto si el usuario no está definido
 }
+?>
+
+<p><?php echo sprintf(__('Hola %s', 'woocommerce'), esc_html($display_name)); ?> (¿no sos <a href="<?php echo esc_url(wp_logout_url()); ?>">Cerrar sesión</a>)</p>
+
+<p><?php _e('Desde el panel de control de tu cuenta podés ver tus pedidos recientes, gestionar tus direcciones de envío y facturación y editar tu contraseña y los detalles de tu cuenta.', 'woocommerce'); ?></p>
