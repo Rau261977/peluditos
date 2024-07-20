@@ -333,7 +333,7 @@ function update_mini_cart_fragments($fragments)
     <div class="mini-cart">
         <?php woocommerce_mini_cart(); ?>
     </div>
-<?php
+    <?php
     $fragments['.mini-cart'] = ob_get_clean();
     return $fragments;
 }
@@ -351,10 +351,11 @@ function enqueue_custom_scripts()
     // Asegúrate de que `wc_cart_params` esté disponible para el script
     wp_localize_script('custom-scripts', 'wc_cart_params', array(
         'ajax_url' => admin_url('admin-ajax.php'),
+        'remove_from_cart_nonce' => wp_create_nonce('remove_from_cart_nonce')
     ));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
+// Manejar la petición AJAX para actualizar el carrito
 add_action('wp_ajax_woocommerce_update_cart_action', 'custom_update_cart_action');
 add_action('wp_ajax_nopriv_woocommerce_update_cart_action', 'custom_update_cart_action');
 
@@ -375,6 +376,46 @@ function custom_update_cart_action()
 
     wp_send_json_success();
 }
+
+
+// Manejar la petición AJAX para eliminar un producto del carrito
+add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
+add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
+
+function remove_cart_item()
+{
+    check_ajax_referer('remove_from_cart_nonce', 'security');
+
+    // Obtén el cart_item_key del POST
+    $cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field($_POST['cart_item_key']) : '';
+
+    // Verifica que el cart_item_key no esté vacío
+    if (empty($cart_item_key)) {
+        wp_send_json_error(array('error' => 'Cart item key is missing.'));
+        wp_die();
+    }
+
+    // Intenta eliminar el ítem del carrito
+    WC()->cart->remove_cart_item($cart_item_key);
+
+    // Envía una respuesta exitosa
+    wp_send_json_success();
+    wp_die();
+}
+
+// Añadir el botón de actualizar carrito junto a los campos de cantidad
+function add_update_cart_button()
+{
+    // Solo añadir en la página del carrito
+    if (is_cart()) {
+    ?>
+        <button type="button" id="update-cart" class="button"><?php _e('Actualizar carrito', 'text-domain'); ?></button>
+<?php
+    }
+}
+add_action('woocommerce_after_cart_table', 'add_update_cart_button');
+
+
 
 
 

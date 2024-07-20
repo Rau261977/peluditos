@@ -24,3 +24,31 @@ jQuery(document).ready(function ($) {
 		});
 	});
 });
+
+jQuery(document).ready(function ($) {
+	// Añadir evento de clic a los nuevos botones de "Actualizar carrito"
+	$('.update-cart-button').on('click', function (e) {
+		e.preventDefault(); // Prevenir la acción por defecto
+
+		// Obtener el botón actual
+		var $button = $(this);
+		// Obtener el valor del campo de cantidad relacionado
+		var cartItemKey = $button.val();
+		var $quantityField = $('input[name="cart[' + cartItemKey + '][qty]"]');
+
+		// Cambiar el valor del campo de cantidad del formulario original
+		$('input[name="cart[' + cartItemKey + '][qty]"]').val($quantityField.val());
+
+		// Añadir el nombre del botón al formulario para que se envíe correctamente
+		$('<input>')
+			.attr({
+				type: 'hidden',
+				name: $button.attr('name'),
+				value: $button.attr('value'),
+			})
+			.appendTo('form.woocommerce-cart-form');
+
+		// Enviar el formulario del carrito
+		$('form.woocommerce-cart-form').submit();
+	});
+});
