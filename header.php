@@ -78,7 +78,7 @@
         </nav>
         <section class="navbar-special" id="navbar-special">
             <div class="centered-text">ENVÍOS A DOMICILIO EN LA PLATA Y ALREDEDORES&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp&nbsp&nbspTODAS LAS PROMOCIONES BANCARIAS&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp
-                &nbsp&nbspTODOS LOS MEDIOS DE PAGO&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp***&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbspTODOS LOS MEDIOS DE PAGO
             </div>
         </section>
 
