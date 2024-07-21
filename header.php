@@ -87,7 +87,7 @@
     <div class="header-cart">
         <a href="<?php echo wc_get_cart_url(); ?>" class="cart-icon">
             <img src="<?php echo get_template_directory_uri(); ?>/imagenes/icono-carrito.png" alt="Cart" class="cart-image">
-            <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+            <span id="cart-count" class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
         </a>
         <div class="mini-cart">
             <?php if (WC()->cart->get_cart_contents_count() > 0) : ?>
@@ -118,8 +118,8 @@
                 <p class="empty"><?php _e('No products in the cart.', 'woocommerce'); ?></p>
             <?php endif; ?>
         </div>
-
     </div>
+
 
 
 

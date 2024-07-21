@@ -285,6 +285,7 @@ function guardar_metabox_tarjetas($post_id)
 }
 add_action('save_post', 'guardar_metabox_tarjetas');
 //--------------------------------------------------------------------//
+// Utiliza una plantilla de carrito personalizada
 function use_custom_cart_template($template)
 {
     if (is_page('carro')) {
@@ -297,9 +298,7 @@ function use_custom_cart_template($template)
 }
 add_filter('template_include', 'use_custom_cart_template');
 
-// encola un script de JavaScript que maneja la actualización del carrito.
-
-
+// --------------  Encola un script de JavaScript que maneja la actualización del carrito
 function my_theme_enqueue_scripts()
 {
     wp_enqueue_script('ajax-update-cart', get_template_directory_uri() . '/js/ajax-update-cart.js', array('jquery'), null, true);
@@ -311,21 +310,16 @@ function my_theme_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
 
-//manejar la petición AJAX y devolver el número actualizado de ítems en el carrito
+// Manejar la petición AJAX y devolver el número actualizado de ítems en el carrito
 function update_cart_count()
 {
     $cart_count = WC()->cart->get_cart_contents_count();
-
-    wp_send_json(array(
-        'cart_count' => $cart_count
-    ));
+    wp_send_json(array('cart_count' => $cart_count));
 }
 add_action('wp_ajax_update_cart_count', 'update_cart_count');
 add_action('wp_ajax_nopriv_update_cart_count', 'update_cart_count');
 
-
-add_filter('woocommerce_add_to_cart_fragments', 'update_mini_cart_fragments');
-
+// Actualizar los fragmentos del mini carrito
 function update_mini_cart_fragments($fragments)
 {
     ob_start();
@@ -337,7 +331,9 @@ function update_mini_cart_fragments($fragments)
     $fragments['.mini-cart'] = ob_get_clean();
     return $fragments;
 }
+add_filter('woocommerce_add_to_cart_fragments', 'update_mini_cart_fragments');
 
+// Encola los scripts personalizados
 function enqueue_custom_scripts()
 {
     wp_enqueue_script(
@@ -355,10 +351,8 @@ function enqueue_custom_scripts()
     ));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-// Manejar la petición AJAX para actualizar el carrito
-add_action('wp_ajax_woocommerce_update_cart_action', 'custom_update_cart_action');
-add_action('wp_ajax_nopriv_woocommerce_update_cart_action', 'custom_update_cart_action');
 
+// Manejar la petición AJAX para actualizar el carrito
 function custom_update_cart_action()
 {
     if (!isset($_POST['data'])) {
@@ -373,18 +367,16 @@ function custom_update_cart_action()
     }
 
     WC()->cart->calculate_totals();
-
     wp_send_json_success();
 }
+add_action('wp_ajax_woocommerce_update_cart_action', 'custom_update_cart_action');
+add_action('wp_ajax_nopriv_woocommerce_update_cart_action', 'custom_update_cart_action');
 
 
 // Manejar la petición AJAX para eliminar un producto del carrito
-add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
-add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
-
 function remove_cart_item()
 {
-    check_ajax_referer('remove_from_cart_nonce', 'security');
+    check_ajax_referer('remove_cart_item_nonce', 'security');
 
     // Obtén el cart_item_key del POST
     $cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field($_POST['cart_item_key']) : '';
@@ -402,6 +394,8 @@ function remove_cart_item()
     wp_send_json_success();
     wp_die();
 }
+add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
+add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
 
 // Añadir el botón de actualizar carrito junto a los campos de cantidad
 function add_update_cart_button()
@@ -415,11 +409,7 @@ function add_update_cart_button()
 }
 add_action('woocommerce_after_cart_table', 'add_update_cart_button');
 
-add_filter('template_include', 'custom_my_account_template', 99);
-
-
-
-add_filter('template_include', 'custom_my_account_template', 99);
+// Personalizar la plantilla de mi cuenta
 function custom_my_account_template($template)
 {
     if (is_account_page()) {
@@ -430,7 +420,9 @@ function custom_my_account_template($template)
     }
     return $template;
 }
+add_filter('template_include', 'custom_my_account_template', 99);
 
+// Encolar estilos personalizados para la página de mi cuenta
 function enqueue_my_account_styles()
 {
     // Verifica que es la página de Mi Cuenta
@@ -439,5 +431,29 @@ function enqueue_my_account_styles()
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_my_account_styles');
+
+// Verificar que los fragmentos del carrito están encolados
+function check_wc_cart_fragments()
+{
+    if (wp_script_is('wc-cart-fragments', 'enqueued')) {
+        error_log('wc-cart-fragments is enqueued');
+    } else {
+        error_log('wc-cart-fragments is not enqueued');
+    }
+}
+add_action('wp_enqueue_scripts', 'check_wc_cart_fragments', 20);
+
+// Obtener el conteo del carrito
+function get_cart_count()
+{
+    $cart_count = WC()->cart->get_cart_contents_count();
+    echo $cart_count;
+    wp_die(); // Termina la ejecución
+}
+add_action('wp_ajax_get_cart_count', 'get_cart_count');
+add_action('wp_ajax_nopriv_get_cart_count', 'get_cart_count');
+
+
+
 
 ?>
