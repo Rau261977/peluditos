@@ -9,7 +9,7 @@ module.exports = {
 	output: {
 		filename: '[name].[contenthash].js',
 		path: path.resolve(__dirname, 'dist'),
-		clean: true, // Esto asegura que la carpeta de salida se limpie antes de cada compilación
+		clean: true,
 	},
 	module: {
 		rules: [
@@ -27,11 +27,24 @@ module.exports = {
 	optimization: {
 		splitChunks: {
 			chunks: 'all',
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
+				},
+				common: {
+					name: 'common',
+					minChunks: 2,
+					chunks: 'all',
+				},
+			},
 		},
 	},
 	performance: {
-		maxAssetSize: 244000,
-		maxEntrypointSize: 244000,
+		maxAssetSize: 512000,
+		maxEntrypointSize: 512000,
 		hints: 'warning',
 	},
+	devtool: 'source-map',
 };
