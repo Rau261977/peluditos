@@ -373,29 +373,6 @@ add_action('wp_ajax_woocommerce_update_cart_action', 'custom_update_cart_action'
 add_action('wp_ajax_nopriv_woocommerce_update_cart_action', 'custom_update_cart_action');
 
 
-// Manejar la petición AJAX para eliminar un producto del carrito
-function remove_cart_item()
-{
-    check_ajax_referer('remove_cart_item_nonce', 'security');
-
-    // Obtén el cart_item_key del POST
-    $cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field($_POST['cart_item_key']) : '';
-
-    // Verifica que el cart_item_key no esté vacío
-    if (empty($cart_item_key)) {
-        wp_send_json_error(array('error' => 'Cart item key is missing.'));
-        wp_die();
-    }
-
-    // Intenta eliminar el ítem del carrito
-    WC()->cart->remove_cart_item($cart_item_key);
-
-    // Envía una respuesta exitosa
-    wp_send_json_success();
-    wp_die();
-}
-add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
-add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
 
 // Añadir el botón de actualizar carrito junto a los campos de cantidad
 function add_update_cart_button()
@@ -453,6 +430,25 @@ function get_cart_count()
 add_action('wp_ajax_get_cart_count', 'get_cart_count');
 add_action('wp_ajax_nopriv_get_cart_count', 'get_cart_count');
 
+// Manejar la petición AJAX para eliminar un producto del carrito
+function remove_cart_item()
+{
+    check_ajax_referer('remove_from_cart_nonce', 'security');
+
+    $cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field($_POST['cart_item_key']) : '';
+
+    if (empty($cart_item_key)) {
+        wp_send_json_error(array('error' => 'Cart item key is missing.'));
+        wp_die();
+    }
+
+    WC()->cart->remove_cart_item($cart_item_key);
+
+    wp_send_json_success();
+    wp_die();
+}
+add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
+add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
 
 
 

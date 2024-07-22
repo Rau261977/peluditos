@@ -57,35 +57,17 @@ jQuery(document).ready(function ($) {
 	});
 
 	// Escuchar clic en el botón de eliminar del mini carrito
-	$(document).on('click', '.remove_from_cart_button', function (e) {
+	$(document).on('click', '.remove', function (e) {
 		e.preventDefault();
 
-		var cartItemKey = $(this).data('cart_item_key');
+		var $button = $(this);
+		var cartItemKey = $button.data('product_id');
 
-		// Realizar la solicitud AJAX para eliminar el artículo
-		$.ajax({
-			type: 'POST',
-			url: wc_cart_params.ajax_url,
-			data: {
-				action: 'remove_cart_item',
-				cart_item_key: cartItemKey,
-				security: wc_cart_params.remove_from_cart_nonce,
-			},
-			success: function (response) {
-				if (response.success) {
-					// Actualizar fragmentos del carrito
-					$(document.body).trigger('wc_fragment_refresh');
+		// Establecer la cantidad a 0
+		$('input[name="cart[' + cartItemKey + '][qty]"]').val(0);
 
-					// Actualizar el contador del mini carrito
-					updateMiniCartCount();
-				} else {
-					console.log('Error removing cart item:', response);
-				}
-			},
-			error: function (xhr, status, error) {
-				console.log('AJAX error:', xhr, status, error);
-			},
-		});
+		// Enviar el formulario del carrito
+		$('form.woocommerce-cart-form').submit();
 	});
 
 	// Función para actualizar el contador del mini carrito

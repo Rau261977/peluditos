@@ -836,6 +836,11 @@ Estilos para la página del carrito de WooCommerce
 .cart-icon .cart-image {
 	width: 40px;
 	height: auto;
+	transition: transform 0.3s ease-in-out;
+}
+
+.cart-icon .cart-image:hover {
+	transform: scale(1.2); /* Ajusta el valor según el tamaño deseado */
 }
 
 .cart-count {
