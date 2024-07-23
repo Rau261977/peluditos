@@ -5,19 +5,83 @@
 
 /* Contenedor principal de la lista de productos */
 
+/* Estilos para las tarjetas en pantallas grandes */
 ul.products {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px; /* Espacio entre las tarjetas */
 	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 /* Elementos de la lista de productos */
 ul.products li.product {
-	flex: 0 1 calc(25% - 20px); /* Ajusta para que ocupe un cuarto del ancho del contenedor, menos el espacio del gap */
+	flex: 0 1 calc(25% - 10px); /* Ajusta para que ocupe un cuarto del ancho del contenedor, menos el espacio del gap */
 	box-sizing: border-box; /* Incluye el padding y border en el ancho total */
 	list-style: none;
-	position: relative; /* Necesario para el posicionamiento relativo */
+	padding: 0;
+}
+
+/* Estilos para la imagen del producto */
+ul.products li.product .card img {
+	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
+	height: auto; /* Altura automática para mantener la proporción */
+	object-fit: cover; /* Ajusta la imagen para cubrir el área disponible */
+}
+
+/* Estilos para el título del producto */
+ul.products li.product .card h2 {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+/* Estilos para el botón de añadir al carrito */
+ul.products li.product .card .button {
+	margin-top: 10px;
+	background-color: #007bff;
+	color: #fff;
+	border-color: #007bff;
+	text-decoration: none;
+	transition: background-color 0.3s ease, border-color 0.3s ease,
+		color 0.3s ease;
+}
+
+/* Estilo para el botón al pasar el mouse */
+ul.products li.product .card .button:hover {
+	background-color: #0056b3;
+	border-color: #0056b3;
+	color: #fff;
+	text-decoration: none;
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 768px) {
+	ul.products li.product {
+		flex: 0 1 calc(33.33% - 10px); /* 3 tarjetas por fila en pantallas medianas */
+	}
+}
+
+@media (max-width: 576px) {
+	ul.products li.product {
+		flex: 0 1 calc(50% - 10px); /* 2 tarjetas por fila en pantallas pequeñas */
+	}
+
+	/* Estilos adicionales para ajustar imágenes y textos */
+	ul.products li.product .card img {
+		height: 150px; /* Ajusta la altura de la imagen en pantallas pequeñas */
+		object-fit: cover; /* Ajuste de la imagen */
+	}
+
+	ul.products li.product .card h2 {
+		font-size: 0.7em; /* Ajusta el tamaño del texto del título */
+	}
+
+	ul.products li.product .card .button {
+		font-size: 0.9em; /* Ajusta el tamaño de la fuente del botón */
+		padding: 2px; /* Ajusta el padding del botón */
+	}
 }
 
 /* Ajustes adicionales para las tarjetas */
@@ -90,14 +154,14 @@ ul.products li.product .card .button:hover {
 
 /* Estilos para el botón de agregar al carrito */
 .add_to_cart_button {
-	margin-top: 20px !important;
+	margin-top: 5px !important;
 	display: inline-block; /* Asegura que el botón se muestre correctamente en línea */
 	background-color: #007bff;
 	color: #fff;
 	border: none;
 	text-transform: capitalize;
 	cursor: pointer;
-	padding: 8px;
+	padding: 2px;
 	border-radius: 10px;
 	font-size: small;
 }
