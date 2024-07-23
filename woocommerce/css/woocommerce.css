@@ -4,15 +4,12 @@
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
 /* Contenedor principal de la lista de productos */
-/* Contenedor principal de la lista de productos */
 
 ul.products {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px; /* Espacio entre las tarjetas */
 	list-style: none;
-	padding: 0;
-	margin: 0;
 }
 
 /* Elementos de la lista de productos */
@@ -26,9 +23,11 @@ ul.products li.product {
 /* Ajustes adicionales para las tarjetas */
 .card {
 	border: none;
-	padding: 20px;
+	padding: 5px;
 	position: relative; /* Permite el posicionamiento absoluto de elementos hijos */
 	text-decoration: none; /* Elimina el subrayado */
+	max-width: 300px;
+	max-height: auto;
 }
 .card a {
 	text-decoration: none; /* Elimina el subrayado predeterminado */
@@ -39,7 +38,7 @@ ul.products li.product {
 .card img {
 	max-width: 100%;
 	height: auto;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 /* Título del producto */
@@ -287,24 +286,6 @@ Estilos generales para la sección grid
 	color: #ffffff; /* Color del enlace al pasar el mouse */
 }
 
-/* Estilos para hacer la grid responsive */
-@media (max-width: 992px) {
-	.grid-section .col {
-		flex: 1 1 calc(33.333% - 1rem); /* Tres columnas por fila */
-	}
-}
-
-@media (max-width: 768px) {
-	.grid-section .col {
-		flex: 1 1 calc(50% - 1rem); /* Dos columnas por fila */
-	}
-}
-
-@media (max-width: 576px) {
-	.grid-section .col {
-		flex: 1 1 100%; /* Una columna por fila */
-	}
-}
 /* Estilos para el botón dentro de las tarjetas de producto */
 .grid-section .card a.btn-primary {
 	display: inline-block;

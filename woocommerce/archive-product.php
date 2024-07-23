@@ -48,7 +48,7 @@ set_query_var('page_id', $page_id);
 get_template_part('template-parts/destacados', 'slider');
 ?>
 
-<div class="section mt-4">
+<div class="grid-section mt-4">
 	<div class="row">
 		<div class="col-md-9">
 			<?php
