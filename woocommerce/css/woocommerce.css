@@ -13,6 +13,9 @@ ul.products {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	align-items: center !important;
+	justify-content: center !important;
+	text-align: center !important;
 }
 
 /* Elementos de la lista de productos */
@@ -25,35 +28,36 @@ ul.products li.product {
 
 /* Estilos para la imagen del producto */
 ul.products li.product .card img {
-	width: 100%; /* Imagen ocupando el ancho completo de la tarjeta */
-	height: auto; /* Altura automática para mantener la proporción */
-	object-fit: cover; /* Ajusta la imagen para cubrir el área disponible */
+	width: 100% !important; /* Imagen ocupando el ancho completo de la tarjeta */
+	height: auto !important; /* Altura automática para mantener la proporción */
+	object-fit: cover !important; /* Ajusta la imagen para cubrir el área disponible */
 }
 
 /* Estilos para el título del producto */
 ul.products li.product .card h2 {
-	font-size: 1.2em;
-	margin-bottom: 10px;
-	color: #333;
+	font-size: 1.2em !important;
+	margin-bottom: 10px !important;
+	color: #333 !important;
 }
 
 /* Estilos para el botón de añadir al carrito */
 ul.products li.product .card .button {
-	margin-top: 10px;
-	background-color: #007bff;
-	color: #fff;
-	border-color: #007bff;
-	text-decoration: none;
+	margin-top: 8px !important;
+	background-color: #007bff !important;
+	color: #fff !important;
+	border-color: #007bff !important;
+	text-decoration: none !important;
+	padding: 8px !important;
 	transition: background-color 0.3s ease, border-color 0.3s ease,
-		color 0.3s ease;
+		color 0.3s ease !important;
 }
 
 /* Estilo para el botón al pasar el mouse */
 ul.products li.product .card .button:hover {
-	background-color: #0056b3;
-	border-color: #0056b3;
-	color: #fff;
-	text-decoration: none;
+	background-color: #0056b3 !important;
+	border-color: #0056b3 !important;
+	color: #fff !important;
+	text-decoration: none !important;
 }
 
 /* Media queries para pantallas pequeñas */
@@ -70,17 +74,17 @@ ul.products li.product .card .button:hover {
 
 	/* Estilos adicionales para ajustar imágenes y textos */
 	ul.products li.product .card img {
-		height: 150px; /* Ajusta la altura de la imagen en pantallas pequeñas */
-		object-fit: cover; /* Ajuste de la imagen */
+		height: 150px !important; /* Ajusta la altura de la imagen en pantallas pequeñas */
+		object-fit: cover !important; /* Ajuste de la imagen */
 	}
 
 	ul.products li.product .card h2 {
-		font-size: 0.7em; /* Ajusta el tamaño del texto del título */
+		font-size: 0.9em !important; /* Ajusta el tamaño del texto del título */
 	}
 
 	ul.products li.product .card .button {
-		font-size: 0.9em; /* Ajusta el tamaño de la fuente del botón */
-		padding: 2px; /* Ajusta el padding del botón */
+		font-size: 0.7em !important; /* Ajusta el tamaño de la fuente del botón */
+		padding: 6px !important; /* Ajusta el padding del botón */
 	}
 }
 
