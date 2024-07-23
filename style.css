@@ -55,6 +55,36 @@ body {
 	height: 75px; /* Altura reducida */
 }
 
+/* Estilos para el botón de menú en dispositivos pequeños---------------------------------------------- */
+.navbar.navbar-expand-lg .navbar-toggler {
+	border: none !important; /* Sin borde */
+	outline: none !important; /* Sin outline */
+	padding: 0.5rem 1rem !important; /* Padding del botón */
+	font-size: 1.25rem !important; /* Tamaño del botón */
+	margin: 0.5rem 0.5rem !important; /* Márgenes del botón */
+	background-color: transparent !important; /* Fondo transparente */
+}
+
+/* Estilos para el ícono del botón de menú */
+.navbar.navbar-expand-lg .navbar-toggler-icon {
+	width: 1.5rem !important; /* Ancho del icono */
+	height: 1.5rem !important; /* Altura del icono */
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 992px) {
+	.navbar.navbar-expand-lg .navbar-toggler {
+		padding: 0.4rem 0.8rem !important; /* Padding ajustado */
+		font-size: 1.1rem !important; /* Tamaño de fuente ajustado */
+		margin: 0.4rem 0.4rem !important; /* Márgenes ajustados */
+	}
+
+	.navbar.navbar-expand-lg .navbar-toggler-icon {
+		width: 1.2rem !important; /* Ancho ajustado */
+		height: 1.2rem !important; /* Altura ajustada */
+	}
+}
+
 /*--------------------------------------------------------------------------------------------------------
 Logo
 ------------------------------------------------------------------------------------------------------------*/
@@ -829,6 +859,13 @@ Estilos para la página del carrito de WooCommerce
 	height: auto;
 	transition: transform 0.3s ease-in-out;
 }
+/* Ajustes para pantallas menores a 576px */
+@media (max-width: 576px) {
+	.cart-icon .cart-image {
+		width: 30px; /* Nuevo ancho para pantallas pequeñas */
+		height: auto; /* Mantener la proporción de la imagen */
+	}
+}
 
 .cart-icon .cart-image:hover {
 	transform: scale(1.2); /* Ajusta el valor según el tamaño deseado */
@@ -845,6 +882,14 @@ Estilos para la página del carrito de WooCommerce
 	line-height: 1;
 	min-width: 45px;
 	text-align: center;
+}
+@media (max-width: 576px) {
+	.cart-count {
+		padding: 6px 3px; /* Ajustar padding */
+		margin-left: 4px; /* Reducir margen izquierdo */
+		font-size: 12px; /* Reducir tamaño de fuente */
+		min-width: 35px; /* Reducir ancho mínimo */
+	}
 }
 
 .mini-cart {
