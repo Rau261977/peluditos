@@ -49,6 +49,23 @@ body {
 	z-index: 10; /* Asegura que el navbar esté por encima del slider */
 	position: relative; /* Permite ajustar la posición del navbar */
 }
+@media (max-width: 576px) {
+	.navbar-toggler {
+		margin-right: 10px; /* Ajusta el margen derecho del botón */
+	}
+
+	.navbar-brand {
+		margin-left: 50px; /* Ajusta el margen izquierdo del logo */
+	}
+
+	.navbar-nav {
+		text-align: center; /* Centra el contenido del menú */
+	}
+
+	.navbar-collapse {
+		justify-content: center; /* Asegura que el contenido del menú esté centrado */
+	}
+}
 
 /* Estilos para la barra de navegación en su estado achicado */
 .navbar.shrink {
@@ -91,6 +108,7 @@ Logo
 /* Tamaño máximo del logo en pantallas grandes */
 .navbar-logo {
 	transition: max-width 0.5s ease, margin 0.5s ease;
+	width: 195px !important;
 }
 
 /* Reducir el tamaño del logo cuando la barra de navegación se achica */
@@ -117,7 +135,6 @@ Logo
 /* Para smartphones */
 @media (max-width: 576px) {
 	.navbar-logo {
-		max-width: 150px; /* Ajusta el tamaño del logo para smartphones */
 		margin: 0; /* Elimina cualquier margen adicional */
 	}
 
@@ -125,14 +142,13 @@ Logo
 		justify-content: center; /* Centra el contenedor del logo horizontalmente */
 		align-items: center; /* Centra el contenedor del logo verticalmente */
 		width: 100%; /* Asegura que el contenedor del logo ocupe el ancho completo */
-		margin: 0; /* Elimina cualquier margen adicional */
+		margin-left: 20px !important; /* Elimina cualquier margen adicional */
 	}
 }
 
 /* Para smartphones muy pequeños */
 @media (max-width: 400px) {
 	.navbar-logo {
-		max-width: 120px; /* Ajusta el tamaño del logo para pantallas muy pequeñas */
 		margin: 0;
 	}
 
@@ -840,8 +856,8 @@ Estilos para la página del carrito de WooCommerce
 /*-----------------------------------------------------------------*/
 .header-cart {
 	position: fixed;
-	top: 20px;
-	right: 20px;
+	top: 50px;
+	right: 5px;
 	display: flex;
 	align-items: center;
 	z-index: 1000;

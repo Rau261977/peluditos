@@ -24,9 +24,14 @@
         <nav class="navbar">
 
             <nav class="navbar navbar-expand-lg d-block d-sm-none">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="/index.php">
+                        <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
+                    </a>
+                </div>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <?php
                     wp_nav_menu([
@@ -35,22 +40,23 @@
                         'container' => false,
                         'walker' => new My_Theme_Walker_Nav_Menu(),
                         'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s
-                           <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Alimentos
-                            </a>
-                           <ul class="dropdown-menu py-3 my-3">
-                           <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
-                            <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
-                            <li><a class="dropdown-item" href="community">menu 3</a></li>
-                              </ul>
-                             </li></ul>'
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Alimentos
+                    </a>
+                    <ul class="dropdown-menu py-3 my-3">
+                        <li><a class="dropdown-item" href="desarrollo-web">menu 1</a></li>
+                        <li><a class="dropdown-item" href="desarrollo-app">menu 2</a></li>
+                        <li><a class="dropdown-item" href="community">menu 3</a></li>
+                    </ul>
+                </li></ul>'
                     ]);
                     ?>
                 </div>
             </nav>
 
-            <div class="col-lg-3 col-12">
+
+            <div class="col-lg-3 col-12 d-none d-sm-block">
                 <div class="d-flex">
                     <a class="navbar-brand" href="/index.php">
                         <img class="navbar-logo" src="<?php echo get_template_directory_uri(); ?>/imagenes/logo.png" alt="logo de peluditos-petshop">
