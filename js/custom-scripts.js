@@ -61,7 +61,7 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 
 		var $button = $(this);
-		var cartItemKey = $button.data('product_id');
+		var cartItemKey = $button.data('cart_item_key'); // Asegúrate de que 'data-cart_item_key' sea el nombre correcto
 
 		// Establecer la cantidad a 0
 		$('input[name="cart[' + cartItemKey + '][qty]"]').val(0);
@@ -91,7 +91,6 @@ jQuery(document).ready(function ($) {
 
 	// Escuchar actualización de fragmentos del carrito
 	$(document.body).on('wc_fragments_refreshed', function () {
-		// Aquí puedes agregar cualquier lógica adicional que necesites
 		console.log('Fragments refreshed');
 	});
 });
