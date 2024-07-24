@@ -857,7 +857,7 @@ Estilos para la página del carrito de WooCommerce
 .header-cart {
 	position: fixed;
 	top: 50px;
-	right: 5px;
+	right: 25px;
 	display: flex;
 	align-items: center;
 	z-index: 1000;
@@ -874,6 +874,12 @@ Estilos para la página del carrito de WooCommerce
 	width: 40px;
 	height: auto;
 	transition: transform 0.3s ease-in-out;
+}
+/* Ajustes para pantallas menores a 576px */
+@media (max-width: 576px) {
+	.header-cart {
+		right: 15px;
+	}
 }
 /* Ajustes para pantallas menores a 576px */
 @media (max-width: 576px) {
@@ -1033,4 +1039,88 @@ Estilos para la página del carrito de WooCommerce
 .mini-cart .empty {
 	padding: 10px;
 	color: #333;
+}
+
+/*-------------------------------------------------------------------------------------------------------
+whatsApp 
+---------------------------------------------------------------------------------------------------------*/
+.whatsapp-icon {
+	bottom: 60px;
+	cursor: pointer;
+	position: fixed;
+	right: 25px;
+	transition: all 0.4s ease-in-out;
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	z-index: 999;
+}
+
+@media (max-width: 576px) {
+	.whatsapp-icon {
+		right: 15px; /* Ajusta el margen derecho para pantallas medianas y grandes */
+	}
+}
+
+.whatsapp-icon:hover {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+.whatsapp-icon img {
+	display: block;
+	height: 70px;
+	width: 70px;
+}
+
+.whatsapp-icon span {
+	display: none;
+}
+
+.whatsapp-icon:hover span {
+	color: #ffffff;
+	display: block;
+	background-color: #1a9910;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 10px;
+	margin-left: 10px;
+	padding: 10px 30px;
+	position: absolute;
+	right: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	white-space: nowrap;
+}
+
+.whatsapp-icon:hover span:hover {
+	background-color: #4caf50;
+	color: #ffffff;
+	transition-duration: 0.4s;
+}
+
+.whatsapp-icon span {
+	display: none;
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	/* Cambiamos "left" a "right" */
+	transform: translateY(-50%);
+	padding: 5px;
+	background-color: #4caf50;
+	color: #fff;
+	border-radius: 5px;
+	font-size: 14px;
+	white-space: nowrap;
+	margin-right: 10px;
+	/* Cambiamos "margin-left" a "margin-right" */
 }
