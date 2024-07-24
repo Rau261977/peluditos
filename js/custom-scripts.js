@@ -70,25 +70,6 @@ jQuery(document).ready(function ($) {
 		$('form.woocommerce-cart-form').submit();
 	});
 
-	// Función para actualizar el contador del mini carrito
-	function updateMiniCartCount() {
-		$.ajax({
-			type: 'POST',
-			url: ajax_update_cart.ajaxurl,
-			data: {
-				action: 'update_cart_count',
-			},
-			success: function (response) {
-				if (response.cart_count !== undefined) {
-					$('.mini-cart-count').text(response.cart_count);
-				}
-			},
-			error: function (xhr, status, error) {
-				console.log('AJAX error:', xhr, status, error);
-			},
-		});
-	}
-
 	// Escuchar actualización de fragmentos del carrito
 	$(document.body).on('wc_fragments_refreshed', function () {
 		console.log('Fragments refreshed');
