@@ -503,7 +503,18 @@ add_action('wp_ajax_remove_product_from_cart', 'remove_product_from_cart');
 add_action('wp_ajax_nopriv_remove_product_from_cart', 'remove_product_from_cart');
 
 
-
+// Utiliza una plantilla de checkout personalizada
+function use_custom_checkout_template($template)
+{
+    if (is_page('finalizar-comprar')) { // Reemplaza 'finalizar-compra' con el slug de tu página de checkout
+        $custom_template = get_stylesheet_directory() . '/woocommerce/checkout/form-checkout.php';
+        if (file_exists($custom_template)) {
+            return $custom_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'use_custom_checkout_template');
 
 
 

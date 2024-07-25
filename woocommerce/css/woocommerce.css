@@ -37,17 +37,18 @@ ul.products li.product .card img {
 ul.products li.product .card h2 {
 	font-size: 1.2em !important;
 	margin-bottom: 10px !important;
-	color: #333 !important;
+	color: #000000 !important;
 }
 
 /* Estilos para el botón de añadir al carrito */
 ul.products li.product .card .button {
-	margin-top: 8px !important;
+	margin-top: 20px !important;
+	font-size: small;
 	background-color: #007bff !important;
 	color: #fff !important;
 	border-color: #007bff !important;
 	text-decoration: none !important;
-	padding: 8px !important;
+	padding: 5px !important;
 	transition: background-color 0.3s ease, border-color 0.3s ease,
 		color 0.3s ease !important;
 }
@@ -104,7 +105,7 @@ ul.products li.product .card .button:hover {
 
 /* Imagen del producto */
 .card img {
-	max-width: 100%;
+	max-width: 80%;
 	height: auto;
 	margin-bottom: 5px;
 }
