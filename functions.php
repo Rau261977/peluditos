@@ -298,6 +298,23 @@ function use_custom_cart_template($template)
 }
 add_filter('template_include', 'use_custom_cart_template');
 
+// Función para usar una plantilla personalizada para el mini carrito
+function use_custom_mini_cart_template($template, $template_name, $template_path)
+{
+    if ($template_name === 'cart/mini-cart.php') {
+        // Ruta a tu plantilla personalizada del mini carrito
+        $custom_template = get_stylesheet_directory() . '/woocommerce/cart/mini-cart.php';
+
+        if (file_exists($custom_template)) {
+            return $custom_template;
+        }
+    }
+    return $template;
+}
+add_filter('woocommerce_locate_template', 'use_custom_mini_cart_template', 10, 3);
+
+//------------------------------------------------------------------------------------------
+
 // --------------  Encola un script de JavaScript que maneja la actualización del carrito
 function my_theme_enqueue_scripts()
 {

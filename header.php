@@ -144,7 +144,7 @@
                     <span class="amount"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
                 </p>
                 <p class="buttons">
-                    <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="button"><?php _e('View Cart', 'woocommerce'); ?></a>
+                    <a href="<?php echo esc_url(wc_get_cart_url()); ?>" class="button"><?php _e('Ver carrito', 'woocommerce'); ?></a>
                     <a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="button checkout"><?php _e('Checkout', 'woocommerce'); ?></a>
                 </p>
             <?php else : ?>
