@@ -350,25 +350,6 @@ function update_mini_cart_fragments($fragments)
 }
 add_filter('woocommerce_add_to_cart_fragments', 'update_mini_cart_fragments');
 
-// Encola los scripts personalizados
-function enqueue_custom_scripts()
-{
-    wp_enqueue_script(
-        'custom-scripts',
-        get_template_directory_uri() . '/js/custom-scripts.js',
-        array('jquery'), // Dependencias, jQuery es necesario para este script
-        '1.0.0',
-        true // Cargar en el pie de página
-    );
-
-    // Asegúrate de que `wc_cart_params` esté disponible para el script
-    wp_localize_script('custom-scripts', 'wc_cart_params', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
-        'remove_from_cart_nonce' => wp_create_nonce('remove_from_cart_nonce')
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
 // Manejar la petición AJAX para actualizar el carrito
 function custom_update_cart_action()
 {
@@ -466,6 +447,34 @@ function remove_cart_item()
 }
 add_action('wp_ajax_remove_cart_item', 'remove_cart_item');
 add_action('wp_ajax_nopriv_remove_cart_item', 'remove_cart_item');
+
+// Encola los scripts personalizados
+function enqueue_custom_scripts()
+{
+    // Encola el script personalizado
+    wp_enqueue_script(
+        'custom-scripts',
+        get_template_directory_uri() . '/js/custom-scripts.js',
+        true // Cargar en el pie de página
+    );
+
+    // Asegúrate de que `wc_cart_params` esté disponible para el script
+    wp_localize_script('custom-scripts', 'wc_cart_params', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'remove_from_cart_nonce' => wp_create_nonce('remove_from_cart_nonce'),
+        'sound_url' => get_template_directory_uri() . '/woocommerce/sonidos/sonido-carrito.mp3'
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+// Encolar wc-cart-fragments si WooCommerce está activo
+function enqueue_wc_cart_fragments()
+{
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_script('wc-cart-fragments');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_wc_cart_fragments');
 
 
 
