@@ -84,30 +84,32 @@ function updateMiniCartCount() {
 		},
 	});
 }
-
-// Actualiza el mini carrito y el contador cuando se elimina un producto
 jQuery(document).on('click', '.remove', function (e) {
 	e.preventDefault();
 
 	var $button = jQuery(this);
-	var cartItemKey = $button.data('cart_item_key');
+	var cartItemKey = $button.data('cart_item_key'); // Asegúrate de que esto devuelve el valor esperado
+
+	if (!cartItemKey) {
+		console.log('Cart item key is missing');
+		return;
+	}
 
 	jQuery.ajax({
 		type: 'POST',
-		url: ajax_update_cart.ajaxurl,
+		url: wc_cart_params.ajax_url,
 		data: {
-			action: 'remove_cart_item',
+			action: 'remove_product_from_cart',
 			cart_item_key: cartItemKey,
-			security: ajax_update_cart.nonce, // Asegúrate de que este nonce coincida con el que se genera en PHP
+			security: wc_cart_params.remove_from_cart_nonce,
 		},
 		success: function (response) {
 			if (response.success) {
 				// Actualiza el mini carrito y el contador
 				updateMiniCartCount();
-				// Opcional: Actualiza los fragmentos del carrito si es necesario
 				jQuery(document.body).trigger('wc_fragment_refresh');
 			} else {
-				console.log('Error removing cart item:', response);
+				console.log('Error removing cart item:', response.data);
 			}
 		},
 		error: function (xhr, status, error) {

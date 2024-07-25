@@ -1,0 +1,22 @@
+jQuery(document).ready(function ($) {
+	$('#remove-item').on('click', function () {
+		var cart_item_key = $(this).data('cart-item-key');
+
+		$.ajax({
+			url: wc_cart_params.ajax_url,
+			type: 'POST',
+			data: {
+				action: 'remove_product_from_cart',
+				cart_item_key: cart_item_key,
+				security: wc_cart_params.remove_from_cart_nonce,
+			},
+			success: function (response) {
+				if (response.success) {
+					// Actualizar el mini carrito o el carrito
+				} else {
+					// Manejar el error
+				}
+			},
+		});
+	});
+});

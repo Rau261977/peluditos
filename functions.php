@@ -477,5 +477,40 @@ function enqueue_wc_cart_fragments()
 add_action('wp_enqueue_scripts', 'enqueue_wc_cart_fragments');
 
 
+function remove_product_from_cart()
+{
+    check_ajax_referer('remove_from_cart_nonce', 'security');
+
+    $cart_item_key = isset($_POST['cart_item_key']) ? sanitize_text_field($_POST['cart_item_key']) : '';
+
+    if (empty($cart_item_key)) {
+        wp_send_json_error(array('error' => 'Cart item key is missing.'));
+    }
+
+    // Verifica si el producto está en el carrito antes de intentar eliminarlo
+    $cart = WC()->cart->get_cart();
+    if (!isset($cart[$cart_item_key])) {
+        wp_send_json_error(array('error' => 'Invalid cart item key.'));
+    }
+
+    WC()->cart->remove_cart_item($cart_item_key);
+    WC()->cart->calculate_totals();
+    WC()->cart->maybe_set_cart_cookies();
+
+    wp_send_json_success(array('message' => 'Product removed successfully.'));
+}
+add_action('wp_ajax_remove_product_from_cart', 'remove_product_from_cart');
+add_action('wp_ajax_nopriv_remove_product_from_cart', 'remove_product_from_cart');
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
