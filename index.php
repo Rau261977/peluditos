@@ -120,7 +120,7 @@ get_template_part('template-parts/destacados-slider');
 
             <div class="col-md-3">
                 <div class="sidebar2" id="sticky-sidebar">
-                    <h2>Notas de interés</h2>
+                    <!--<h2>Notas de interés</h2> -->
                     <?php
                     $recent_posts = wp_get_recent_posts(array('numberposts' => 5));
 

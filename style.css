@@ -45,7 +45,7 @@ body {
 /* Estilos generales del navbar */
 .navbar {
 	transition: height 1s ease; /* Transición de altura con una duración de 3 segundos y función de temporización de suavizado */
-	background-color: #f2e516; /* Fondo blanco semi-transparente */
+	background-color: #add8e6; /* Fondo blanco semi-transparente */
 	z-index: 10; /* Asegura que el navbar esté por encima del slider */
 	position: relative; /* Permite ajustar la posición del navbar */
 }
@@ -243,7 +243,7 @@ Estilos para la barra de navegación
 /* Estilos para el campo de búsqueda */
 .search-field {
 	color: rgba(255, 255, 255, 0.789);
-	background-color: #d0d44f84 !important; /* Color de fondo */
+	background-color: #bbbbb384 !important; /* Color de fondo */
 	width: 300px; /* Ajusta el ancho del campo de búsqueda */
 	margin-right: 10px; /* Espacio entre el campo y el botón de búsqueda */
 	height: 40px; /* Altura del campo de búsqueda */
@@ -320,7 +320,7 @@ Estilos para la barra de navegación
 
 /*--------------------------------------------------------------------------------------*/
 .navbar-special {
-	background-color: #f2e516;
+	background-color: #add8e6;
 	position: relative; /* Cambiado a relative inicialmente */
 	padding: 10px;
 	color: rgba(0, 0, 0, 0.789);
@@ -349,7 +349,7 @@ Estilos para la barra de navegación
 	left: 0;
 	width: 100%;
 	height: 1px; /* Altura del borde simulado */
-	background: white;
+	background: rgb(0, 0, 0);
 	transform: scaleY(0.5); /* Escalar verticalmente para simular 0.5px */
 }
 
