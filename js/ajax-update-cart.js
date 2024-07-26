@@ -1,5 +1,4 @@
 jQuery(document).ready(function ($) {
-	// Función para actualizar el contador del carrito
 	var isUpdating = false;
 
 	function updateCartCount() {
@@ -25,27 +24,47 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
-	// Reproducir sonido al agregar un producto al carrito
 	function playAddToCartSound() {
-		var audio = new Audio(ajax_update_cart.sound_url); // Usa la URL pasada desde PHP
+		var audio = new Audio(ajax_update_cart.sound_url);
 		audio.play().catch(function (error) {
 			console.log('Error playing audio:', error);
 		});
 	}
 
-	// Evento delegado para el clic en el botón de eliminación
+	function updateMiniCart() {
+		jQuery.ajax({
+			url: wc_cart_params.ajax_url,
+			type: 'POST',
+			data: {
+				action: 'woocommerce_get_mini_cart_fragments',
+				security: wc_cart_params.cart_nonce,
+			},
+			success: function (response) {
+				if (response.fragments) {
+					jQuery.each(response.fragments, function (key, value) {
+						jQuery(key).replaceWith(value);
+					});
+					console.log('Mini cart updated');
+				}
+			},
+			error: function (xhr, status, error) {
+				console.log('AJAX error:', status, error);
+			},
+		});
+	}
+
 	jQuery('body').on('click', '.mini_cart_item .remove', function (e) {
 		e.preventDefault();
 		var $this = jQuery(this);
 
-		// Realizar la eliminación del producto vía AJAX
 		jQuery.ajax({
 			url: $this.attr('href'),
 			type: 'GET',
 			success: function () {
 				console.log('Product removed');
-				$this.closest('.mini_cart_item').remove(); // Eliminar el producto del mini carrito
-				updateCartCount(); // Actualizar el contador del carrito
+				$this.closest('.mini_cart_item').remove();
+				updateCartCount();
+				updateMiniCart();
 			},
 			error: function (xhr, status, error) {
 				console.log('AJAX error:', status, error);
@@ -53,20 +72,15 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
-	// Evento delegado para la adición de productos al carrito
-	jQuery('body')
-		.off('added_to_cart')
-		.on('added_to_cart', function () {
-			console.log('Product added to cart');
-			updateCartCount(); // Actualizar el contador del carrito
-			playAddToCartSound(); // Reproducir sonido al agregar un producto
-		});
+	jQuery('body').on('added_to_cart', function () {
+		console.log('Product added to cart');
+		updateCartCount();
+		playAddToCartSound();
+	});
 
-	// Actualiza el contador al cargar la página
 	updateCartCount();
 });
 
-// Función para actualizar el contador del mini carrito
 function updateMiniCartCount() {
 	jQuery.ajax({
 		type: 'POST',
@@ -84,11 +98,12 @@ function updateMiniCartCount() {
 		},
 	});
 }
+
 jQuery(document).on('click', '.remove', function (e) {
 	e.preventDefault();
 
 	var $button = jQuery(this);
-	var cartItemKey = $button.data('cart_item_key'); // Asegúrate de que esto devuelve el valor esperado
+	var cartItemKey = $button.data('cart_item_key');
 
 	if (!cartItemKey) {
 		console.log('Cart item key is missing');
@@ -105,7 +120,6 @@ jQuery(document).on('click', '.remove', function (e) {
 		},
 		success: function (response) {
 			if (response.success) {
-				// Actualiza el mini carrito y el contador
 				updateMiniCartCount();
 				jQuery(document.body).trigger('wc_fragment_refresh');
 			} else {
