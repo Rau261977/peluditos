@@ -2,24 +2,23 @@ jQuery(document).ready(function ($) {
 	var isUpdating = false;
 
 	function updateCartCount() {
-		if (isUpdating) return; // Prevenir solicitudes duplicadas
+		if (isUpdating) return;
 		isUpdating = true;
 
 		jQuery.ajax({
 			url: ajax_update_cart.ajaxurl,
 			type: 'POST',
-			data: {
-				action: 'get_cart_count',
-			},
+			data: { action: 'get_cart_count' },
 			success: function (response) {
 				jQuery('#cart-count').text(response);
 				console.log('Cart count updated:', response);
 			},
 			error: function (xhr, status, error) {
 				console.log('AJAX error:', status, error);
+				console.log('Response:', xhr.responseText);
 			},
 			complete: function () {
-				isUpdating = false; // Permitir futuras actualizaciones
+				isUpdating = false;
 			},
 		});
 	}
@@ -49,6 +48,7 @@ jQuery(document).ready(function ($) {
 			},
 			error: function (xhr, status, error) {
 				console.log('AJAX error:', status, error);
+				console.log('Response:', xhr.responseText);
 			},
 		});
 	}
@@ -68,6 +68,7 @@ jQuery(document).ready(function ($) {
 			},
 			error: function (xhr, status, error) {
 				console.log('AJAX error:', status, error);
+				console.log('Response:', xhr.responseText);
 			},
 		});
 	});
@@ -85,9 +86,7 @@ function updateMiniCartCount() {
 	jQuery.ajax({
 		type: 'POST',
 		url: ajax_update_cart.ajaxurl,
-		data: {
-			action: 'update_cart_count',
-		},
+		data: { action: 'update_cart_count' },
 		success: function (response) {
 			if (response.cart_count !== undefined) {
 				jQuery('.mini-cart-count').text(response.cart_count);
@@ -95,6 +94,7 @@ function updateMiniCartCount() {
 		},
 		error: function (xhr, status, error) {
 			console.log('AJAX error:', xhr, status, error);
+			console.log('Response:', xhr.responseText);
 		},
 	});
 }
@@ -128,6 +128,38 @@ jQuery(document).on('click', '.remove', function (e) {
 		},
 		error: function (xhr, status, error) {
 			console.log('AJAX error:', xhr, status, error);
+			console.log('Response:', xhr.responseText);
 		},
+	});
+});
+
+jQuery(document).ready(function ($) {
+	$('.update-cart').on('click', function (e) {
+		e.preventDefault();
+
+		var productId = $(this).data('product-id');
+		var quantity = $(this).siblings('.quantity').val();
+
+		$.ajax({
+			url: ajax_update_cart.ajaxurl,
+			type: 'POST',
+			data: {
+				action: 'update_cart',
+				product_id: productId,
+				quantity: quantity,
+			},
+			success: function (response) {
+				if (response.success) {
+					updateCartCount();
+					updateMiniCart();
+				} else {
+					console.log('Error:', response.data);
+				}
+			},
+			error: function (xhr, status, error) {
+				console.log('Error:', error);
+				console.log('Response:', xhr.responseText);
+			},
+		});
 	});
 });
